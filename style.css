@@ -702,3 +702,53 @@ body {
 .footer-links a:hover {
     color: #4af3ff;
 }
+
+/* INSIGHTS LAYOUT (ESSAYS + SIGNALS) */
+.insights-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+    .insights-split {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.section-head {
+    margin: 20px 0 10px;
+}
+
+.section-head h2 {
+    color: #e5f4ff;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+}
+
+.section-head .muted {
+    opacity: 0.75;
+}
+
+/* BADGES */
+.badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,255,255,0.18);
+    background: rgba(20, 28, 48, 0.55);
+}
+
+.badge-essay {
+    color: #00eaff;
+    border-color: rgba(0,234,255,0.35);
+}
+
+.badge-signal {
+    color: #b58cff;
+    border-color: rgba(181,140,255,0.35);
+}
+
