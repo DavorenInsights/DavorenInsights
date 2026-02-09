@@ -775,3 +775,10 @@ body {
     padding:60px 20px;
     line-height:1.8;
 }
+
+.authority-line{
+    margin-top:14px;
+    font-size:1.05rem;
+    opacity:0.8;
+    letter-spacing:0.3px;
+}
