@@ -752,3 +752,26 @@ body {
     border-color: rgba(181,140,255,0.35);
 }
 
+.article-type{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color:#00eaff;
+    margin-bottom:10px;
+}
+
+.article-type.signal{
+    color:#b58cff;
+}
+
+.article-meta{
+    opacity:0.7;
+    margin-bottom:40px;
+}
+
+.article-container{
+    max-width:800px;
+    margin:auto;
+    padding:60px 20px;
+    line-height:1.8;
+}
