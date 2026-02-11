@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strategic Essays — Davoren Insights</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essays — Davoren Insights</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -20,84 +20,100 @@
   <div class="blog-particles"></div>
 
   <div class="blog-hero-content">
-    <h1>Strategic Essays</h1>
-    <p>Frameworks and decision-grade thinking. Built to be referenced.</p>
+    <h1>Essays</h1>
+    <p>Decision-grade frameworks — written deliberately.</p>
   </div>
 </header>
 
 <section class="blog-container">
 
-  <!-- CORE THINKING (PINNED ONLY) -->
-  <div class="section-head">
-    <h2>Core Thinking</h2>
-    <p class="muted">Pinned essays that define the intellectual spine.</p>
+  <!-- FILTER BAR -->
+  <div class="filter-bar" role="navigation" aria-label="Filter by lens">
+    <a class="filter-pill" href="essays.html" data-filter="all">All</a>
+    <a class="filter-pill" href="essays.html?lens=innovation" data-filter="innovation">Innovation</a>
+    <a class="filter-pill" href="essays.html?lens=valence" data-filter="valence">Valence</a>
+    <a class="filter-pill" href="essays.html?lens=futures" data-filter="futures">Futures</a>
+    <a class="filter-pill" href="essays.html?lens=human" data-filter="human">Human</a>
   </div>
 
-  <div class="blog-list">
+  <div class="blog-list" id="essaysList">
 
-    <a href="essays/ev-signals-emerging-markets.html" class="blog-card">
-      <div class="card-top">
-        <span class="badge badge-essay">Core Essay</span>
-        <span class="card-meta">Feb 2026 • 9 min</span>
-      </div>
-
-      <h3>Global EV Signals — Implications for Emerging Markets</h3>
-
-      <p>Three structural signals shaping the next decade — and where asymmetric opportunity is forming.</p>
-
-      <div class="card-tags">
-        <span class="tag">Futures</span>
-        <span class="tag">Strategic Systems</span>
-      </div>
-    </a>
-
-    <!-- ADD NEW PINNED ESSAY ABOVE THIS LINE (RARE) -->
-
-  </div>
-
-  <!-- LIBRARY (ONLY NON-PINNED ESSAYS) -->
-  <div class="section-head">
-    <h2>Essay Library</h2>
-    <p class="muted">All other essays, ordered newest first.</p>
-  </div>
-
-  <!-- Empty state (remove once you have 2+ essays) -->
-  <div class="empty-state">
-    <p class="muted">
-      The library will expand over time. For now, start with the pinned core essay above.
-    </p>
-  </div>
-
-  <!--
-  <div class="blog-list">
-
-    <a href="essays/your-next-essay.html" class="blog-card">
+    <a class="blog-card" href="essays/ev-signals-emerging-markets.html"
+       data-lens="futures">
       <div class="card-top">
         <span class="badge badge-essay">Essay</span>
-        <span class="card-meta">Mar 2026 • 10 min</span>
+        <span class="card-meta">Feb 2026 • 9 min</span>
       </div>
+      <h3>Global EV Signals — Implications for Emerging Markets</h3>
+      <p>Three structural signals shaping the next decade — and where asymmetric opportunity is forming.</p>
+      <div class="card-tags">
+        <span class="tag">Futures</span>
+        <span class="tag">Systems</span>
+      </div>
+    </a>
 
-      <h3>Your Next Essay Title</h3>
-      <p>One-sentence description that tells the reader what they’ll get.</p>
+    <a class="blog-card" href="essays/most-read-framework.html"
+       data-lens="human">
+      <div class="card-top">
+        <span class="badge badge-framework">Anchor</span>
+        <span class="card-meta">Evergreen • 10 min</span>
+      </div>
+      <h3>Integration Risk Framework</h3>
+      <p>A model for mapping coordination debt, bottlenecks, and execution failure modes.</p>
+      <div class="card-tags">
+        <span class="tag">Human</span>
+        <span class="tag">Framework</span>
+      </div>
+    </a>
 
+    <!-- Placeholder -->
+    <a class="blog-card" href="#"
+       data-lens="valence">
+      <div class="card-top">
+        <span class="badge badge-essay">Essay</span>
+        <span class="card-meta">Coming soon</span>
+      </div>
+      <h3>Carbon as Infrastructure</h3>
+      <p>Why MRV logic becomes a governance layer, not an accounting exercise.</p>
       <div class="card-tags">
         <span class="tag">Valence</span>
-        <span class="tag">Innovation Architectures</span>
+        <span class="tag">MRV</span>
       </div>
     </a>
 
   </div>
-  -->
-
 </section>
 
 <footer class="footer">
   <p>© 2026 Davoren Insights</p>
   <p class="footer-links">
-    <a href="insights.html">Insights</a> •
-    <a href="signals.html">Signals</a>
+    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a> •
+    <a href="about.html">About</a> •
+    <a href="insights.html">Insights</a>
   </p>
 </footer>
+
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const lens = (params.get("lens") || "all").toLowerCase();
+
+    // activate pill
+    document.querySelectorAll(".filter-pill").forEach(p => {
+      const f = p.getAttribute("data-filter");
+      if (f === lens) p.classList.add("active");
+      else p.classList.remove("active");
+    });
+
+    // filter cards
+    const cards = document.querySelectorAll("#essaysList .blog-card");
+    cards.forEach(card => {
+      const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
+      const show = (lens === "all") || (cardLens === lens);
+      card.style.display = show ? "block" : "none";
+    });
+  })();
+</script>
 
 </body>
 </html>
