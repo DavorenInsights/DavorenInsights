@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signals — Davoren Insights</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -21,47 +21,114 @@
 
   <div class="blog-hero-content">
     <h1>Signals</h1>
-    <p>Short dispatches: what’s shifting, what it breaks, what it enables.</p>
+    <p>Fast dispatches — what changed, why it matters, early indicators.</p>
   </div>
 </header>
 
 <section class="blog-container">
 
-  <div class="section-head">
-    <h2>Latest</h2>
-    <p class="muted">High density. Low fluff. Built for scanning.</p>
+  <!-- FILTER BAR -->
+  <div class="filter-bar" role="navigation" aria-label="Filter by lens">
+    <a class="filter-pill" href="signals.html" data-filter="all">All</a>
+    <a class="filter-pill" href="signals.html?lens=innovation" data-filter="innovation">Innovation</a>
+    <a class="filter-pill" href="signals.html?lens=valence" data-filter="valence">Valence</a>
+    <a class="filter-pill" href="signals.html?lens=futures" data-filter="futures">Futures</a>
+    <a class="filter-pill" href="signals.html?lens=human" data-filter="human">Human</a>
   </div>
 
-  <div class="blog-list">
+  <!-- LIST -->
+  <div class="blog-list" id="signalsList">
 
-    <a href="signals/integration-is-the-bottleneck.html" class="blog-card">
+    <a class="blog-card" href="signals/integration-is-the-bottleneck.html"
+       data-lens="human">
       <div class="card-top">
         <span class="badge badge-signal">Signal 001</span>
         <span class="card-meta">Feb 2026 • 3 min</span>
       </div>
-
-      <h3>Integration Is the Bottleneck (Not Technology)</h3>
-      <p>Most transition programmes fail on coordination, not ambition or funding.</p>
-
+      <h3>Integration Is the Bottleneck</h3>
+      <p>Coordination debt becomes the constraint.</p>
       <div class="card-tags">
-        <span class="tag">Strategic Systems</span>
-        <span class="tag">Futures</span>
+        <span class="tag">Human</span>
+        <span class="tag">Execution</span>
       </div>
     </a>
 
-    <!-- Copy/paste card blocks for new signals -->
+    <!-- Example placeholders (change/remove as you publish) -->
+    <a class="blog-card" href="#"
+       data-lens="innovation">
+      <div class="card-top">
+        <span class="badge badge-signal">Signal 002</span>
+        <span class="card-meta">Coming soon</span>
+      </div>
+      <h3>Constraint Shifts in Deep-Tech Commercialisation</h3>
+      <p>When the bottleneck moves from invention to adoption.</p>
+      <div class="card-tags">
+        <span class="tag">Innovation</span>
+        <span class="tag">Commercialisation</span>
+      </div>
+    </a>
+
+    <a class="blog-card" href="#"
+       data-lens="valence">
+      <div class="card-top">
+        <span class="badge badge-signal">Signal 003</span>
+        <span class="card-meta">Coming soon</span>
+      </div>
+      <h3>MRV Is Becoming Infrastructure</h3>
+      <p>Measurement logic becomes the operating system.</p>
+      <div class="card-tags">
+        <span class="tag">Valence</span>
+        <span class="tag">MRV</span>
+      </div>
+    </a>
+
+    <a class="blog-card" href="#"
+       data-lens="futures">
+      <div class="card-top">
+        <span class="badge badge-signal">Signal 004</span>
+        <span class="card-meta">Coming soon</span>
+      </div>
+      <h3>Policy Lag as an Opportunity Window</h3>
+      <p>Early movers build the rails while certainty is missing.</p>
+      <div class="card-tags">
+        <span class="tag">Futures</span>
+        <span class="tag">Policy</span>
+      </div>
+    </a>
 
   </div>
-
 </section>
 
 <footer class="footer">
   <p>© 2026 Davoren Insights</p>
   <p class="footer-links">
-    <a href="insights.html">Insights</a> •
-    <a href="essays.html">Strategic Essays</a>
+    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a> •
+    <a href="about.html">About</a> •
+    <a href="insights.html">Insights</a>
   </p>
 </footer>
+
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const lens = (params.get("lens") || "all").toLowerCase();
+
+    // activate pill
+    document.querySelectorAll(".filter-pill").forEach(p => {
+      const f = p.getAttribute("data-filter");
+      if (f === lens) p.classList.add("active");
+      else p.classList.remove("active");
+    });
+
+    // filter cards
+    const cards = document.querySelectorAll("#signalsList .blog-card");
+    cards.forEach(card => {
+      const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
+      const show = (lens === "all") || (cardLens === lens);
+      card.style.display = show ? "block" : "none";
+    });
+  })();
+</script>
 
 </body>
 </html>
