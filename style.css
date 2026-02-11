@@ -1113,3 +1113,20 @@ p{ margin: 0; }
   opacity:.26;
   transform: scale(1.08);
 }
+.insights-card{
+  padding: 40px 30px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.insights-card h2{
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.insights-card p{
+  opacity: 0.85;
+  line-height: 1.6;
+}
