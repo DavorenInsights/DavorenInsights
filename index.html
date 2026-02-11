@@ -9,6 +9,14 @@
 
 <body>
 
+  <!-- INTRO REVEAL (shown once per session) -->
+  <div id="intro" aria-hidden="true">
+    <h1 class="intro-title">
+      Davoren Insights
+      <span>Interpreting Signals. Designing Systems.</span>
+    </h1>
+  </div>
+
   <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -25,34 +33,28 @@
     <div class="hero-content">
       <h1>Davoren Insights</h1>
 
-      <p>
-        Interpreting Signals. Designing Systems. Enabling Transition.
-      </p>
+      <p>Interpreting Signals. Designing Systems. Enabling Transition.</p>
 
       <p class="authority-line">
         Focused on the structural challenges shaping complex technology and energy transitions.
       </p>
 
-      <!-- NEW: Format promise / clarity -->
+      <!-- High ROI: clarity on what they get -->
       <p class="format-promise muted">
-        <strong>Signals</strong> (3–5 min): what changed + why it matters + early indicators.&nbsp;&nbsp;
+        <strong>Signals</strong> (3–5 min): what changed + why it matters + early indicators.
         <strong>Essays</strong> (8–12 min): decision-ready frameworks for transition execution.
       </p>
 
-      <!-- UPDATED: One primary CTA + secondary conversion path -->
+      <!-- High ROI: one primary CTA + follow path + about as text link -->
       <div class="hero-cta">
         <a class="btn" href="insights.html">Read Insights</a>
-
-        <!-- Secondary path (pick one now, keep the other for later if you want) -->
         <a class="btn btn-ghost" href="#follow">Follow</a>
-
-        <!-- About becomes a simple link (not competing CTA) -->
         <a class="cta-text-link" href="about.html">About</a>
       </div>
     </div>
   </header>
 
-  <!-- UPDATED: Replace domain strip with "who it's for" clarity -->
+  <!-- Replaces abstract domain list with "who it's for" -->
   <section class="domain-strip">
     <p>
       For programme leads, policy teams, investors, and operators navigating transition execution — especially in emerging markets.
@@ -67,8 +69,6 @@
     </div>
 
     <div class="tiles tiles-4">
-
-      <!-- UPDATED: Each lens routes via query params for filtering -->
       <a class="tile" href="insights.html?lens=innovation">
         <span class="tile-kicker">Innovation</span>
         <h3>Innovation Architectures</h3>
@@ -96,7 +96,6 @@
         <p>Coordination failure, incentives, decision friction, adoption barriers, execution reality.</p>
         <span class="tile-foot muted">Demos + videos coming</span>
       </a>
-
     </div>
   </section>
 
@@ -137,7 +136,7 @@
         </div>
       </a>
 
-      <!-- NEW: Third slot to avoid “empty” feel (Most Read / Featured Framework) -->
+      <!-- Evergreen / Most Read / Framework -->
       <a href="essays/most-read-framework.html" class="blog-card">
         <div class="card-top">
           <span class="badge badge-framework">Most Read</span>
@@ -153,28 +152,26 @@
 
     </div>
 
-    <!-- Optional: link to browse all content -->
     <div class="latest-footer">
       <a class="text-link" href="insights.html">Browse all insights →</a>
     </div>
   </section>
 
-  <!-- UPDATED: Calm credibility strip -->
   <section class="cred-strip">
     <p class="muted">
       Built for decision-makers: fewer posts, higher signal-to-noise — grounded in real constraints, not theory.
     </p>
   </section>
 
-  <!-- NEW: Follow / conversion section (simple, non-clutter) -->
+  <!-- FOLLOW / CONVERSION -->
   <section class="follow-strip" id="follow">
     <div class="follow-inner">
       <h2>Follow</h2>
       <p class="muted">
-        If you want updates when new signals drop, follow on LinkedIn (or email me for collaboration).
+        If you want updates when new signals drop, follow on LinkedIn (or email for collaboration).
       </p>
       <div class="follow-cta">
-        <!-- IMPORTANT: Replace the href with your real LinkedIn profile or company page -->
+        <!-- Replace with your real LinkedIn -->
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/YOUR-HANDLE-HERE" target="_blank" rel="noopener noreferrer">
           Follow on LinkedIn
         </a>
@@ -189,14 +186,33 @@
     <p>© 2026 Davoren Insights</p>
     <p class="muted">davoreninsights@gmail.com</p>
     <p class="footer-links">
-      <!-- UPDATED: Use your actual LinkedIn profile/company page (not generic linkedin.com) -->
       <a href="https://www.linkedin.com/in/YOUR-HANDLE-HERE" target="_blank" rel="noopener noreferrer">LinkedIn</a> •
       <a href="about.html">About</a> •
       <a href="insights.html">Insights</a>
     </p>
   </footer>
 
+  <!-- INTRO LOGIC -->
+  <script>
+    (function () {
+      const intro = document.getElementById("intro");
+      if (!intro) return;
+
+      // Show once per session (fast + not annoying)
+      if (sessionStorage.getItem("introShown")) {
+        intro.style.display = "none";
+        return;
+      }
+
+      sessionStorage.setItem("introShown", "true");
+
+      window.addEventListener("load", () => {
+        // Total experience ~1.1s (premium, not gimmicky)
+        setTimeout(() => intro.classList.add("hide"), 1100);
+      });
+    })();
+  </script>
+
 </body>
 </html>
-
 
