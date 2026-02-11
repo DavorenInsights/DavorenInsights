@@ -1180,3 +1180,7 @@ p{ margin: 0; }
   opacity: 0.85;
   line-height: 1.6;
 }
+.about-background{
+  border: 1px solid rgba(0,255,255,0.18);
+  box-shadow: 0 0 35px rgba(0,255,255,0.06);
+}
