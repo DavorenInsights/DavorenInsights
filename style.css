@@ -532,6 +532,56 @@ p{ margin: 0; }
   padding: 0 0 40px;
 }
 
+
+/* Insights gateway cards */
+.insights-card{
+  padding: 40px 30px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.insights-card h2{
+  font-size: 1.7rem;
+  margin: 12px 0 12px;
+}
+
+/* Filter bar */
+.filter-bar{
+  width: min(var(--max), 92%);
+  margin: 0 auto 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-pill{
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(10, 14, 25, 0.22);
+  backdrop-filter: blur(10px);
+  opacity: 0.85;
+  transition: 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.filter-pill:hover{
+  opacity: 1;
+  border-color: rgba(0,255,255,0.22);
+  box-shadow: 0 0 18px rgba(0,255,255,0.10);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active{
+  opacity: 1;
+  border-color: rgba(0,234,255,0.32);
+  box-shadow: 0 0 22px rgba(0,234,255,0.12);
+}
+
 /* ============================================================
    FOLLOW STRIP (Index conversion)
 ============================================================ */
