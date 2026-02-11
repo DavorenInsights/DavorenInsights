@@ -1,6 +1,6 @@
 /* ============================================================
    DAVORen INSIGHTS — THINK TANK x FUTURIST (PREMIUM)
-   Replace your entire style.css with this file.
+   Full style.css (clean layout + publishing system)
 ============================================================ */
 
 /* ============================================================
@@ -12,7 +12,7 @@
   --text: #e5f4ff;
   --muted: rgba(229, 244, 255, 0.82);
 
-  /* Accents (restrained futurism) */
+  /* Accents */
   --cyan: #00eaff;
   --violet: #8d6bff;
   --pink: #ff4bf1;
@@ -30,7 +30,7 @@
   --r-lg: 18px;
   --r-md: 14px;
 
-  /* Shadows (premium depth) */
+  /* Shadows */
   --shadow-1: 0 10px 30px rgba(0,0,0,0.35);
   --shadow-2: 0 18px 55px rgba(0,0,0,0.55);
 
@@ -66,7 +66,6 @@ body{
   min-height: 100vh;
   overflow-x: hidden;
 
-  /* premium text rendering */
   letter-spacing: 0.15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -74,13 +73,16 @@ body{
 }
 
 a{ color: inherit; }
+p{ margin: 0; }
+
+.muted{ opacity: 0.78; }
 
 ::selection{
   background: rgba(0, 234, 255, 0.22);
 }
 
 /* ============================================================
-   BACKGROUND (quiet, think-tank)
+   BACKGROUND
 ============================================================ */
 .background{
   position: fixed;
@@ -93,7 +95,7 @@ a{ color: inherit; }
 }
 
 /* ============================================================
-   NAVIGATION (anchored, institutional)
+   NAVIGATION
 ============================================================ */
 .navbar{
   width: 100%;
@@ -120,12 +122,10 @@ a{ color: inherit; }
   transition: 0.2s ease;
 }
 
-.navbar a:hover{
-  color: var(--cyan);
-}
+.navbar a:hover{ color: var(--cyan); }
 
 /* ============================================================
-   HERO (think tank x futurist)
+   HERO
 ============================================================ */
 .hero{
   position: relative;
@@ -138,7 +138,6 @@ a{ color: inherit; }
   margin-bottom: 10px;
 }
 
-/* Glow: restrained */
 .hero-glow{
   position: absolute;
   width: 160%;
@@ -161,7 +160,6 @@ a{ color: inherit; }
   transform-origin: center;
   width: 120%;
   height: 120px;
-
   background: radial-gradient(
     ellipse at center,
     rgba(0, 255, 255, 0.18) 0%,
@@ -169,7 +167,6 @@ a{ color: inherit; }
     rgba(255, 80, 200, 0.12) 48%,
     rgba(0, 0, 0, 0) 80%
   );
-
   filter: blur(38px);
   opacity: 0.72;
   z-index: -1;
@@ -177,7 +174,6 @@ a{ color: inherit; }
   animation: glowPulse 8s ease-in-out infinite alternate;
 }
 
-/* Particles: quieter */
 .particles{
   position: absolute;
   inset: 0;
@@ -211,6 +207,7 @@ a{ color: inherit; }
 }
 
 .hero-content h1{
+  margin: 0;
   font-size: clamp(2.6rem, 4vw, 3.8rem);
   font-weight: 720;
   letter-spacing: var(--ls-tight);
@@ -228,7 +225,6 @@ a{ color: inherit; }
   margin-right: auto;
 }
 
-/* Authority line (signature sentence) */
 .authority-line{
   margin-top: 14px;
   font-size: 1.05rem;
@@ -239,7 +235,40 @@ a{ color: inherit; }
   margin-right: auto;
 }
 
-/* Domain strip (institutional label) */
+/* Home hero CTA buttons */
+.hero-cta{
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none;
+  background: rgba(10, 14, 25, 0.25);
+  backdrop-filter: blur(10px);
+  transition: 0.25s ease;
+}
+
+.btn:hover{
+  border-color: rgba(0,255,255,0.22);
+  box-shadow: 0 0 18px rgba(0,255,255,0.12);
+  transform: translateY(-2px);
+}
+
+.btn-ghost{
+  background: transparent;
+  opacity: 0.88;
+}
+
+/* Domain strip */
 .domain-strip{
   padding: 22px 20px;
   margin: 20px 0 30px;
@@ -263,13 +292,12 @@ a{ color: inherit; }
 }
 
 /* ============================================================
-   PREMIUM SURFACE SYSTEM (cards, panels)
+   PREMIUM SURFACE SYSTEM
 ============================================================ */
 .tile,
 .blog-card,
 .about-card,
-.about-hero-box,
-.article-body{
+.about-hero-box{
   background: linear-gradient(180deg, var(--panel), var(--panel-soft));
   border: 1px solid rgba(0,255,255,0.10);
   border-radius: var(--r-lg);
@@ -277,7 +305,7 @@ a{ color: inherit; }
   backdrop-filter: blur(8px);
 }
 
-/* Subtle specular highlight (premium glass) */
+/* Specular highlight */
 .tile,
 .blog-card,
 .about-card{
@@ -299,7 +327,7 @@ a{ color: inherit; }
   pointer-events: none;
 }
 
-/* Hover: fewer neon tricks, more depth */
+/* Hover */
 .tile:hover,
 .blog-card:hover,
 .about-card:hover{
@@ -309,15 +337,35 @@ a{ color: inherit; }
 }
 
 /* ============================================================
-   TILES (home grid)
+   HOME SECTIONS
 ============================================================ */
+.home-section{
+  width: min(var(--max), 92%);
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+/* Tiles base */
 .tiles{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  padding: 40px 20px;
-  max-width: var(--max);
-  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.tiles-4{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+}
+
+@media (max-width: 1100px){
+  .tiles-4{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px){
+  .tiles-4{ grid-template-columns: 1fr; }
 }
 
 .tile{
@@ -325,6 +373,7 @@ a{ color: inherit; }
   text-decoration: none;
   color: var(--text);
   transition: 0.25s ease;
+  display: block;
 }
 
 .tile h3{
@@ -338,31 +387,334 @@ a{ color: inherit; }
   line-height: 1.6;
 }
 
-/* ============================================================
-   PAGE SECTIONS
-============================================================ */
-.page-section{
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 20px;
+.tile-kicker{
+  display: inline-block;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 10px;
+  letter-spacing: 0.6px;
 }
 
-.page-section h1{
-  font-size: 2.6rem;
-  margin-bottom: 20px;
+.tile-foot{
+  display: block;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  opacity: 0.62;
+}
+
+/* Latest grid on home */
+.latest-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 900px){
+  .latest-grid{ grid-template-columns: 1fr; }
+}
+
+.cred-strip{
+  width: min(var(--max), 92%);
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+/* ============================================================
+   BLOG HERO (Insights/Signals/Essays pages)
+============================================================ */
+.blog-hero{
+  position: relative;
+  width: min(var(--max), 92%);
+  height: 30vh;
+  overflow: hidden;
+  margin: 28px auto 28px;
+  padding: 0;
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
+  border: 1px solid rgba(0,255,255,0.10);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-hero-content{
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.blog-hero-content h1{
+  font-size: 2.8rem;
+  margin: 0 0 10px 0;
   background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.page-section p{
-  line-height: 1.75;
+.blog-hero-content p{
+  font-size: 1.2rem;
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin: 0;
+}
+
+.blog-hero-glow{
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  left: 0;
+  top: 0;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(0, 255, 255, 0.18),
+    rgba(140, 70, 255, 0.12),
+    rgba(0, 0, 0, 0.88)
+  );
+  filter: blur(62px);
+  animation: blogGlowPulse 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.blog-particles{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.blog-particles::before,
+.blog-particles::after{
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(circle, rgba(0,255,255,0.16) 2px, transparent 2px),
+    radial-gradient(circle, rgba(140,80,255,0.14) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,80,200,0.12) 2px, transparent 2px);
+  background-size: 150px 150px;
+  animation: blogParticleDrift 30s linear infinite;
+  opacity: 0.22;
+  filter: blur(1px);
+}
+
+.blog-particles::after{
+  animation-duration: 40s;
+  opacity: 0.16;
 }
 
 /* ============================================================
-   ABOUT (sub-hero + content)
+   IMPORTANT FIX: BLOG CONTAINER SHOULD NOT BE A GRID
+   This is what was making your Essays page feel messy.
+============================================================ */
+.blog-container{
+  width: min(var(--max), 92%);
+  margin: 0 auto;
+  padding: 10px 0 40px;
+  display: block;
+}
+
+/* Lists = your actual card grids */
+.blog-list{
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* Cards */
+.blog-card{
+  padding: 24px;
+  transition: 0.25s ease;
+  text-decoration: none;
+  display: block;
+  color: var(--text);
+}
+
+.blog-card h2,
+.blog-card h3{
+  font-size: 1.4rem;
+  margin: 0 0 12px 0;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blog-card p{
+  margin: 0;
+  opacity: 0.82;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   INSIGHTS SPLIT (the two big tiles page)
+============================================================ */
+.insights-split{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 900px){
+  .insights-split{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Section headers */
+.section-head{
+  margin: 18px 0 6px;
+}
+
+.section-head h2{
+  color: var(--text);
+  font-size: 1.6rem;
+  margin: 0 0 6px 0;
+}
+
+.section-head .muted{
+  opacity: 0.75;
+}
+
+/* ============================================================
+   CARD META SYSTEM (used across signals/essays/home)
+============================================================ */
+.card-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-meta{
+  font-size: 0.92rem;
+  opacity: 0.62;
+}
+
+.card-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tag{
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  font-size: 0.85rem;
+  opacity: 0.82;
+}
+
+/* ============================================================
+   BADGES
+============================================================ */
+.badge{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0,255,255,0.18);
+  background: rgba(10, 14, 25, 0.25);
+}
+
+.badge-essay{
+  color: var(--cyan);
+  border-color: rgba(0,234,255,0.32);
+}
+
+.badge-signal{
+  color: rgba(181,140,255,0.95);
+  border-color: rgba(181,140,255,0.30);
+}
+
+/* ============================================================
+   ARTICLE PAGES (Signal + Essay templates)
+============================================================ */
+.article-container{
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  line-height: 1.85;
+}
+
+.article-type{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+
+.article-type.signal{
+  color: rgba(181,140,255,0.95);
+}
+
+.article-container h1{
+  margin: 0 0 10px 0;
+  font-size: clamp(2.1rem, 3vw, 2.8rem);
+  letter-spacing: var(--ls-tight);
+}
+
+.article-subtitle{
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.86;
+  line-height: 1.6;
+}
+
+.article-meta{
+  opacity: 0.68;
+  margin-top: 12px;
+}
+
+.article-tags{
+  opacity: 0.78;
+  margin-top: 10px;
+  letter-spacing: 0.4px;
+}
+
+.article-divider{
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+  margin: 28px 0;
+}
+
+.strategic-note{
+  font-style: italic;
+  opacity: 0.95;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Essay-only helpers */
+.callout{
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  margin: 18px 0 26px;
+  background: rgba(255,255,255,0.03);
+  opacity: 0.95;
+}
+
+.executive-insight{
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* Empty state (for essays library before you have more) */
+.empty-state{
+  padding: 18px 0 6px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 6px;
+}
+
+/* ============================================================
+   ABOUT PAGE
 ============================================================ */
 .sub-hero{
   width: 100%;
@@ -496,249 +848,6 @@ a{ color: inherit; }
 }
 
 /* ============================================================
-   BLOG HERO + GRID (Insights pages too)
-============================================================ */
-.blog-hero{
-  position: relative;
-  width: 100%;
-  height: 30vh;
-  overflow: hidden;
-  margin: 50px auto 40px;
-  padding: 0;
-  border-radius: var(--r-lg);
-  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
-  border: 1px solid rgba(0,255,255,0.10);
-  box-shadow: var(--shadow-1);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blog-hero-content{
-  position: relative;
-  z-index: 5;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.blog-hero-content h1{
-  font-size: 2.8rem;
-  margin: 0 0 10px 0;
-  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.blog-hero-content p{
-  font-size: 1.2rem;
-  opacity: 0.85;
-  margin: 0;
-}
-
-.blog-hero-glow{
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  left: 0;
-  top: 0;
-  background: radial-gradient(circle at 50% 50%,
-    rgba(0, 255, 255, 0.18),
-    rgba(140, 70, 255, 0.12),
-    rgba(0, 0, 0, 0.88)
-  );
-  filter: blur(62px);
-  animation: blogGlowPulse 8s ease-in-out infinite alternate;
-  z-index: 0;
-}
-
-.blog-particles{
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.blog-particles::before,
-.blog-particles::after{
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image:
-    radial-gradient(circle, rgba(0,255,255,0.16) 2px, transparent 2px),
-    radial-gradient(circle, rgba(140,80,255,0.14) 2px, transparent 2px),
-    radial-gradient(circle, rgba(255,80,200,0.12) 2px, transparent 2px);
-  background-size: 150px 150px;
-  animation: blogParticleDrift 30s linear infinite;
-  opacity: 0.22;
-  filter: blur(1px);
-}
-
-.blog-particles::after{
-  animation-duration: 40s;
-  opacity: 0.16;
-}
-
-.blog-container{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 30px;
-}
-
-.blog-list{
-  display: grid;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.blog-card{
-  padding: 28px;
-  transition: 0.25s ease;
-  text-decoration: none;
-  display: block;
-  color: var(--text);
-}
-
-.blog-card h2,
-.blog-card h3{
-  font-size: 1.4rem;
-  margin: 0 0 12px 0;
-  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.blog-card p{
-  margin: 0;
-  opacity: 0.82;
-  line-height: 1.65;
-}
-
-/* ============================================================
-   INSIGHTS LAYOUT (Essays + Signals hub)
-============================================================ */
-.insights-split{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  margin-bottom: 40px;
-}
-
-@media (min-width: 900px){
-  .insights-split{
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.section-head{
-  margin: 20px 0 10px;
-}
-
-.section-head h2{
-  color: var(--text);
-  font-size: 1.6rem;
-  margin: 0 0 6px 0;
-}
-
-.section-head .muted{
-  opacity: 0.75;
-}
-
-/* Badges */
-.badge{
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
-  border: 1px solid rgba(0,255,255,0.18);
-  background: rgba(10, 14, 25, 0.25);
-}
-
-.badge-essay{
-  color: var(--cyan);
-  border-color: rgba(0,234,255,0.32);
-}
-
-.badge-signal{
-  color: rgba(181,140,255,0.95);
-  border-color: rgba(181,140,255,0.30);
-}
-
-/* ============================================================
-   ARTICLE PAGES (templates)
-============================================================ */
-.article-body{
-  max-width: 850px;
-  margin: 60px auto;
-  padding: 20px;
-  line-height: 1.75;
-  font-size: 1.1rem;
-}
-
-.article-body h2{
-  margin-top: 30px;
-  color: var(--cyan);
-}
-
-.article-nav{
-  width: 100%;
-  padding: 15px 25px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 10;
-}
-
-.article-nav a{
-  color: var(--cyan);
-  font-size: 1.05rem;
-  text-decoration: none;
-  border: 1px solid rgba(0,255,255,0.22);
-  padding: 8px 16px;
-  border-radius: 10px;
-  backdrop-filter: blur(8px);
-  background: rgba(20, 28, 48, 0.38);
-  transition: 0.25s ease;
-}
-
-.article-nav a:hover{
-  background: rgba(0,255,255,0.10);
-  box-shadow: 0 0 14px rgba(0,255,255,0.22);
-  transform: translateX(-4px);
-}
-
-/* Template helpers */
-.article-type{
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
-  color: var(--cyan);
-  margin-bottom: 10px;
-}
-
-.article-type.signal{
-  color: rgba(181,140,255,0.95);
-}
-
-.article-meta{
-  opacity: 0.7;
-  margin-bottom: 40px;
-}
-
-.article-container{
-  max-width: 800px;
-  margin: auto;
-  padding: 60px 20px;
-  line-height: 1.85;
-}
-
-/* ============================================================
    FOOTER
 ============================================================ */
 .footer{
@@ -763,7 +872,7 @@ a{ color: inherit; }
 }
 
 /* ============================================================
-   ANIMATIONS (controlled)
+   ANIMATIONS
 ============================================================ */
 @keyframes heroPulse{
   0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
@@ -802,4 +911,5 @@ a{ color: inherit; }
     scroll-behavior: auto !important;
   }
 }
+
 
