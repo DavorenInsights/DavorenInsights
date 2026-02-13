@@ -740,3 +740,16 @@ a.blog-card:hover{
 =========================== */
 .domain-page .home-section{ padding-top: 22px; }
 .blog-card .muted{ color: var(--muted); }
+
+/* Lens tiles should feel calmer than router cards */
+
+.tile{
+  background: rgba(20,28,48,0.42);
+  border: 1px solid rgba(0,255,255,0.08);
+}
+
+.tile:hover{
+  transform: translateY(-3px); /* was -6px */
+  border: 1px solid rgba(0,234,255,0.16);
+  background: rgba(20,28,48,0.52);
+}
