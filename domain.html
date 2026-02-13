@@ -1,5 +1,5 @@
 <!-- =========================
-     domain.html  (FULL FILE)
+     domain.html  (FULL FILE) — SYNCED
      Save as: /domain.html
 ========================= -->
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Domain — Davoren Insights</title>
-  <meta name="description" content="Domain view: Signals, Essays, Labs, and Academy organized by lens." />
+  <meta name="description" content="Domain view: Signals, Essays, Field Guides, and Strategic Instruments organized by lens." />
   <meta name="robots" content="index,follow" />
 
   <link rel="stylesheet" href="style.css" />
@@ -19,11 +19,15 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- NAV (Synced to sitewide) -->
   <nav class="navbar" aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="insights.html">Insights</a>
+    <a href="field-guides.html">Field Guides</a>
+    <a href="instruments.html">Strategic Instruments</a>
     <a href="academy.html">Academy</a>
-    <a href="labs.html">Labs</a>
+    <a href="about.html">About</a>
+    <a href="index.html#engage">Engage</a>
   </nav>
 
   <div class="background" aria-hidden="true"></div>
@@ -36,15 +40,79 @@
 
     <div class="hero-content blog-hero-content">
       <h1 id="domainTitle">Domain</h1>
-      <p class="hero-sub" id="domainSub">Signals, essays, labs, and academy — organized by lens.</p>
+      <p class="hero-sub" id="domainSub">Signals, essays, guides, and instruments — organized by lens.</p>
       <p class="format-promise muted" id="domainKicker"></p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#lens">Lenses</a>
+        <a class="btn btn-ghost" href="insights.html">Insights</a>
+        <a class="cta-text-link" href="index.html#engage">Engage</a>
+      </div>
     </div>
   </header>
 
   <main id="main">
 
+    <!-- LENSES (as tiles, with descriptions) -->
+    <section class="home-section section-tint section-tint-a" id="lens" aria-labelledby="lens-title">
+      <div class="section-head">
+        <h2 id="lens-title">Choose a lens</h2>
+        <p class="section-sub muted">Filters everything on the site by domain focus.</p>
+      </div>
+
+      <div class="latest-grid" aria-label="Lens tiles">
+        <a class="blog-card" data-lens="innovation" href="domain.html?lens=innovation" aria-label="Innovation lens">
+          <div class="card-top">
+            <span class="badge badge-framework">Innovation</span>
+            <span class="card-meta">Systems + adoption</span>
+          </div>
+          <h3>Innovation Architectures</h3>
+          <p>Constraint-driven redesign, commercialization sequencing, adoption reality.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Constraints</span><span class="tag">Adoption</span>
+          </div>
+        </a>
+
+        <a class="blog-card" data-lens="valence" href="domain.html?lens=valence" aria-label="Valence lens">
+          <div class="card-top">
+            <span class="badge badge-framework">Valence</span>
+            <span class="card-meta">Hard science</span>
+          </div>
+          <h3>Measurement and physical systems</h3>
+          <p>Hard sciences umbrella: materials, energy, carbon, MRV, and the mechanics underneath claims.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Materials</span><span class="tag">MRV</span>
+          </div>
+        </a>
+
+        <a class="blog-card" data-lens="futures" href="domain.html?lens=futures" aria-label="Futures lens">
+          <div class="card-top">
+            <span class="badge badge-framework">Futures</span>
+            <span class="card-meta">Second-order</span>
+          </div>
+          <h3>Directional intelligence</h3>
+          <p>Signals, second-order effects, timing, and opportunity windows under uncertainty.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Signals</span><span class="tag">Timing</span>
+          </div>
+        </a>
+
+        <a class="blog-card" data-lens="decision" href="domain.html?lens=decision" aria-label="Decision lens">
+          <div class="card-top">
+            <span class="badge badge-framework">Decision</span>
+            <span class="card-meta">Execution</span>
+          </div>
+          <h3>Coordination and execution systems</h3>
+          <p>Decision friction, coordination debt, governance interfaces, delivery failure modes.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Coordination</span><span class="tag">Execution</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- SIGNALS -->
-    <section class="home-section section-tint section-tint-a" aria-labelledby="signals-title">
+    <section class="home-section section-tint section-tint-b" aria-labelledby="signals-title">
       <div class="section-head">
         <h2 id="signals-title">Signals</h2>
         <a class="text-link" id="signalsBrowse" href="signals.html">Browse all →</a>
@@ -53,7 +121,7 @@
     </section>
 
     <!-- ESSAYS -->
-    <section class="home-section section-tint section-tint-b" aria-labelledby="essays-title">
+    <section class="home-section section-tint section-tint-c" aria-labelledby="essays-title">
       <div class="section-head">
         <h2 id="essays-title">Essays</h2>
         <a class="text-link" id="essaysBrowse" href="essays.html">Browse all →</a>
@@ -61,17 +129,26 @@
       <div class="latest-grid" id="essaysGrid" aria-label="Essays grid"></div>
     </section>
 
-    <!-- LABS -->
-    <section class="home-section section-tint section-tint-c" aria-labelledby="labs-title">
+    <!-- FIELD GUIDES -->
+    <section class="home-section section-tint section-tint-a" aria-labelledby="guides-title">
       <div class="section-head">
-        <h2 id="labs-title">Labs</h2>
-        <a class="text-link" href="labs.html">Open Labs →</a>
+        <h2 id="guides-title">Field Guides</h2>
+        <a class="text-link" id="guidesBrowse" href="field-guides.html">Browse all →</a>
       </div>
-      <div class="latest-grid" id="labsGrid" aria-label="Labs grid"></div>
+      <div class="latest-grid" id="guidesGrid" aria-label="Field Guides grid"></div>
+    </section>
+
+    <!-- INSTRUMENTS -->
+    <section class="home-section section-tint section-tint-b" aria-labelledby="instruments-title">
+      <div class="section-head">
+        <h2 id="instruments-title">Strategic Instruments</h2>
+        <a class="text-link" id="instrumentsBrowse" href="instruments.html">Browse all →</a>
+      </div>
+      <div class="latest-grid" id="instrumentsGrid" aria-label="Instruments grid"></div>
     </section>
 
     <!-- ACADEMY -->
-    <section class="home-section section-tint section-tint-b" aria-labelledby="academy-title">
+    <section class="home-section section-tint section-tint-c" aria-labelledby="academy-title">
       <div class="section-head">
         <h2 id="academy-title">Academy</h2>
         <a class="text-link" href="academy.html">Academy →</a>
@@ -100,7 +177,8 @@
     <p class="footer-links">
       <a href="index.html">Home</a> •
       <a href="insights.html">Insights</a> •
-      <a href="labs.html">Labs</a> •
+      <a href="field-guides.html">Field Guides</a> •
+      <a href="instruments.html">Strategic Instruments</a> •
       <a href="academy.html">Academy</a>
     </p>
   </footer>
@@ -114,31 +192,27 @@
       const params = new URLSearchParams(window.location.search);
       const lens = (params.get("lens") || "innovation").toLowerCase();
 
+      // Synced lens intent (Valence = hard science umbrella)
       const LENS_META = {
         innovation: {
           title: "Innovation",
-          sub: "Constraint-driven redesign. Adoption reality. Industrial shifts.",
-          kicker: "Innovation Architectures • Systems Design • Commercialisation"
+          sub: "Constraint-driven redesign. Adoption reality. Commercialisation sequencing.",
+          kicker: "Innovation Architectures • Systems Design • Adoption & Scale"
         },
         valence: {
           title: "Valence",
-          sub: "Carbon as infrastructure. MRV logic. Incentives + integrity.",
-          kicker: "Carbon Systems • MRV • Integrity & Incentives"
+          sub: "Hard science umbrella: materials, energy, measurement, carbon, and infrastructure logic.",
+          kicker: "Materials & Energy • Measurement Systems • Carbon & MRV"
         },
         futures: {
           title: "Futures",
-          sub: "Signals. Second-order effects. Opportunity windows.",
-          kicker: "Directional Intelligence • Risk Horizons • Timing"
+          sub: "Signals, second-order effects, and timing under uncertainty.",
+          kicker: "Directional Intelligence • Second-order Effects • Opportunity Windows"
         },
         decision: {
           title: "Decision",
-          sub: "Coordination failure. Decision friction. Adoption reality.",
-          kicker: "Execution Systems • Coordination Debt • Institutions"
-        },
-        human: {
-          title: "Human",
-          sub: "Teams, incentives, and coordination design under real constraints.",
-          kicker: "Human Systems • Teams • Coordination Fit"
+          sub: "Coordination failure, decision friction, and execution systems.",
+          kicker: "Execution Systems • Coordination Debt • Governance Interfaces"
         }
       };
 
@@ -153,8 +227,16 @@
       // “Browse all” links filtered
       document.getElementById("signalsBrowse").href = `signals.html?lens=${encodeURIComponent(lens)}`;
       document.getElementById("essaysBrowse").href = `essays.html?lens=${encodeURIComponent(lens)}`;
+      document.getElementById("guidesBrowse").href = `field-guides.html`;   // (optional: add filtering later)
+      document.getElementById("instrumentsBrowse").href = `instruments.html`; // (optional: add filtering later)
 
-      // Pull content
+      // Highlight lens tiles (purely visual)
+      document.querySelectorAll('[id="lens"] .blog-card').forEach(card => {
+        const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
+        card.style.opacity = (cardLens === lens) ? "1" : "0.78";
+      });
+
+      // Pull content (safe defaults)
       const signals = ((window.CONTENT && window.CONTENT.signals) || [])
         .filter(x => ((x.lens || "").toLowerCase() === lens))
         .slice(0, 3);
@@ -163,7 +245,11 @@
         .filter(x => ((x.lens || "").toLowerCase() === lens))
         .slice(0, 3);
 
-      const labs = ((window.CONTENT && window.CONTENT.labs) || [])
+      const guides = ((window.CONTENT && window.CONTENT.guides) || (window.CONTENT && window.CONTENT.fieldGuides) || [])
+        .filter(x => ((x.lens || "").toLowerCase() === lens))
+        .slice(0, 3);
+
+      const instruments = ((window.CONTENT && window.CONTENT.instruments) || [])
         .filter(x => ((x.lens || "").toLowerCase() === lens))
         .slice(0, 3);
 
@@ -174,7 +260,8 @@
       // Render
       renderCards("signalsGrid", signals, "signal");
       renderCards("essaysGrid", essays, "essay");
-      renderLabCards("labsGrid", labs);
+      renderCards("guidesGrid", guides, "guide");
+      renderCards("instrumentsGrid", instruments, "instrument");
       renderCards("academyGrid", academy, "academy");
 
       // Academy fallback panel
@@ -193,18 +280,17 @@
         items.forEach(item => {
           const a = document.createElement("a");
           a.className = "blog-card";
-          a.href = item.href;
-
-          // lens line (subtle top border via CSS if you keep your lens helpers)
+          a.href = item.href || "#";
           a.setAttribute("data-lens", (item.lens || lens));
 
           const tags = Array.isArray(item.tags) ? item.tags : [];
-          const badge = item.badge || (type === "signal" ? "Signal" : type === "essay" ? "Essay" : "Item");
+          const badge = item.badge || defaultBadge(type);
+          const metaLine = item.meta || item.date || item.readTime || "";
 
           a.innerHTML = `
             <div class="card-top">
               <span class="badge ${badgeClass(type)}">${escapeHtml(badge)}</span>
-              <span class="card-meta">${escapeHtml(item.meta || "")}</span>
+              <span class="card-meta">${escapeHtml(metaLine)}</span>
             </div>
             <h3>${escapeHtml(item.title || "Untitled")}</h3>
             ${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ``}
@@ -217,50 +303,30 @@
         });
       }
 
-      function renderLabCards(containerId, items) {
-        const el = document.getElementById(containerId);
-        el.innerHTML = "";
-
-        if (!items.length) {
-          el.innerHTML = emptyCard("labs");
-          return;
-        }
-
-        items.forEach(item => {
-          const a = document.createElement("a");
-          a.className = "blog-card";
-          a.href = item.href;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.setAttribute("data-lens", (item.lens || lens));
-
-          const tags = Array.isArray(item.tags) ? item.tags : [];
-
-          a.innerHTML = `
-            <div class="card-top">
-              <span class="badge badge-framework">Lab</span>
-              <span class="card-meta">${escapeHtml(item.status || "Live")}</span>
-            </div>
-            <h3>${escapeHtml(item.title || "Untitled Lab")}</h3>
-            ${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ``}
-            <div class="card-tags" aria-label="Tags">
-              ${tags.slice(0, 2).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
-            </div>
-          `;
-
-          el.appendChild(a);
-        });
+      function defaultBadge(type){
+        if (type === "signal") return "Signal";
+        if (type === "essay") return "Essay";
+        if (type === "guide") return "Field Guide";
+        if (type === "instrument") return "Instrument";
+        if (type === "academy") return "Program";
+        return "Item";
       }
 
       function badgeClass(type) {
         if (type === "signal") return "badge-signal";
         if (type === "essay") return "badge-essay";
-        if (type === "academy") return "badge-framework";
         return "badge-framework";
       }
 
       function emptyCard(type) {
-        const label = (type === "labs") ? "No labs listed yet" : "Coming soon";
+        const label =
+          (type === "signal") ? "No signals yet" :
+          (type === "essay") ? "No essays yet" :
+          (type === "guide") ? "No field guides yet" :
+          (type === "instrument") ? "No instruments yet" :
+          (type === "academy") ? "No programs yet" :
+          "Coming soon";
+
         return `
           <div class="blog-card" aria-disabled="true">
             <div class="card-top">
@@ -268,7 +334,7 @@
               <span class="card-meta">—</span>
             </div>
             <h3>Nothing to show yet</h3>
-            <p class="muted">This domain will fill out as you publish.</p>
+            <p class="muted">This section will fill out as you publish.</p>
             <div class="card-tags" aria-label="Tags">
               <span class="tag">In development</span>
             </div>
