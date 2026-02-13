@@ -1,93 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Signal 001 — Signal Title | Davoren Insights</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta name="description" content="Signal 001 — Signal Title. A 3–5 minute dispatch from Davoren Insights." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
 
-<nav class="navbar">
-  <a href="../index.html">Home</a>
-  <a href="../about.html">About</a>
-  <a href="../insights.html">Insights</a>
-</nav>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<section class="article-container">
+  <nav class="navbar" aria-label="Primary">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../insights.html">Insights</a>
+  </nav>
 
-  <!-- ARTICLE TYPE -->
-  <p class="article-type signal">Signal 001</p>
+  <main id="main" class="article-container">
 
-  <!-- TITLE -->
-  <h1>Signal Title</h1>
+    <!-- Header -->
+    <header class="article-head">
 
-  <!-- SUBTITLE -->
-  <p class="article-subtitle">
-    One clear sentence framing what this signal reveals.
-  </p>
+      <div class="article-kicker">
+        <span class="article-type signal">Signal 001</span>
+        <span class="article-meta">Feb 2026 • 3 min</span>
+      </div>
 
-  <!-- META -->
-  <p class="article-meta">
-    Feb 2026 • 3 min
-  </p>
+      <h1 class="article-title">Signal Title</h1>
 
-  <!-- TAGS -->
-  <p class="article-tags">
-    Innovation Architectures • Futures • Strategic Systems
-  </p>
+      <p class="article-subtitle">
+        One clear sentence framing what this signal reveals.
+      </p>
 
-  <hr class="article-divider">
+      <div class="article-tags" aria-label="Tags">
+        <span class="tag">Innovation Architectures</span>
+        <span class="tag">Futures</span>
+        <span class="tag">Strategic Systems</span>
+      </div>
 
-  <!-- OBSERVATION -->
-  <h2>Observation</h2>
-  <p>
-    State what is happening.
-    No drama. No exaggeration.
-    Just clarity.
-  </p>
+    </header>
 
-  <!-- INTERPRETATION -->
-  <h2>Interpretation</h2>
-  <p>
-    Why this matters beneath the surface.
-    What pressure created this?
-    What is shifting structurally?
-    What most observers are missing.
-  </p>
+    <hr class="article-divider" />
 
-  <!-- STRATEGIC IMPLICATION -->
-  <h2>Strategic Implication</h2>
-  <p>
-    What this changes across the system.
-    Who benefits? Who is exposed?
-    What accelerates or stalls?
-  </p>
+    <!-- Signal brief (high ROI) -->
+    <section class="signal-brief" aria-label="Signal Brief">
+      <div class="signal-brief-grid">
+        <div class="signal-brief-item">
+          <h3>Core idea</h3>
+          <p>One sentence. What’s changing (in plain language).</p>
+        </div>
+        <div class="signal-brief-item">
+          <h3>Why now</h3>
+          <p>The pressure that forced the shift (policy, cost, tech, behavior).</p>
+        </div>
+        <div class="signal-brief-item">
+          <h3>Watch for</h3>
+          <p>One indicator that tells you the trend is real (or failing).</p>
+        </div>
+        <div class="signal-brief-item">
+          <h3>So what</h3>
+          <p>Who benefits, who gets exposed, and what decision changes.</p>
+        </div>
+      </div>
+    </section>
 
-  <hr class="article-divider">
+    <hr class="article-divider" />
 
-  <!-- STRATEGIC NOTE -->
-  <h2>Strategic Note</h2>
-  <p class="strategic-note">
-    One or two sharp sentences. Almost aphoristic.
+    <!-- Body -->
+    <article class="article-body">
 
-    Example:
+      <section class="article-section" aria-labelledby="obs-title">
+        <h2 id="obs-title">Observation</h2>
+        <p>
+          State what is happening.
+          No drama. No exaggeration.
+          Just clarity.
+        </p>
+      </section>
 
-    “Transitions rarely fail from lack of ambition —
-    they fail from coordination debt.”
-  </p>
+      <section class="article-section" aria-labelledby="int-title">
+        <h2 id="int-title">Interpretation</h2>
+        <p>
+          Why this matters beneath the surface.
+          What pressure created this?
+          What is shifting structurally?
+          What most observers are missing.
+        </p>
+      </section>
 
-</section>
+      <section class="article-section" aria-labelledby="imp-title">
+        <h2 id="imp-title">Strategic implication</h2>
+        <p>
+          What this changes across the system.
+          Who benefits? Who is exposed?
+          What accelerates or stalls?
+        </p>
+      </section>
 
-<footer class="footer">
-  <p>© 2026 Davoren Insights</p>
-  <p class="footer-links">
-    <a href="../insights.html">Insights</a> •
-    <a href="../signals.html">Signals</a> •
-    <a href="../essays.html">Strategic Essays</a>
-  </p>
-</footer>
+      <section class="article-section" aria-labelledby="note-title">
+        <h2 id="note-title">Strategic note</h2>
+        <blockquote class="strategic-note">
+          “Transitions rarely fail from lack of ambition —
+          they fail from coordination debt.”
+        </blockquote>
+      </section>
+
+    </article>
+
+    <nav class="article-nav" aria-label="Article navigation">
+      <a class="text-link" href="../signals.html">← Back to Signals</a>
+      <!-- Optional: wire these when you have them -->
+      <!-- <a class="text-link" href="signal-002.html">Next →</a> -->
+    </nav>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Davoren Insights</p>
+    <p class="muted">davoreninsights@gmail.com</p>
+    <p class="footer-links">
+      <a href="../insights.html">Insights</a> •
+      <a href="../signals.html">Signals</a> •
+      <a href="../essays.html">Strategic Essays</a>
+    </p>
+  </footer>
 
 </body>
 </html>
