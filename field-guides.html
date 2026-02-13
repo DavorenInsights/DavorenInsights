@@ -21,6 +21,7 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- NAV (synced) -->
   <nav class="navbar" aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="insights.html">Insights</a>
@@ -171,12 +172,13 @@
         <p class="section-sub muted">Select guides. Built for reuse.</p>
       </div>
 
-      <div class="filter-bar" aria-label="Filter field guides">
-        <span class="filter-pill active">All</span>
-        <span class="filter-pill">Innovation</span>
-        <span class="filter-pill">Valence</span>
-        <span class="filter-pill">Futures</span>
-        <span class="filter-pill">Decision</span>
+      <!-- Filter bar (static for now; becomes interactive later if you want) -->
+      <div class="filter-bar" role="navigation" aria-label="Filter field guides">
+        <a class="filter-pill active" href="#catalog" aria-current="true">All</a>
+        <a class="filter-pill" href="domain.html?lens=innovation">Innovation</a>
+        <a class="filter-pill" href="domain.html?lens=valence">Valence</a>
+        <a class="filter-pill" href="domain.html?lens=futures">Futures</a>
+        <a class="filter-pill" href="domain.html?lens=decision">Decision</a>
       </div>
 
       <div class="latest-grid">
@@ -274,6 +276,7 @@
 
   </main>
 
+  <!-- FOOTER (synced) -->
   <footer class="footer">
     <p>© 2026 Davoren Insights</p>
     <p class="muted">davoreninsights@gmail.com</p>
@@ -284,8 +287,8 @@
          rel="noopener noreferrer">LinkedIn</a> •
       <a href="about.html">About</a> •
       <a href="insights.html">Insights</a> •
-      <a href="instruments.html">Strategic Instruments</a> •
-      <a href="field-guides.html">Field Guides</a>
+      <a href="field-guides.html">Field Guides</a> •
+      <a href="instruments.html">Strategic Instruments</a>
     </p>
   </footer>
 
