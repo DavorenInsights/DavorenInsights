@@ -1,3 +1,6 @@
+<!-- =========================
+     signals.html  (FULL FILE)
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +24,9 @@
     <a href="insights.html">Insights</a>
   </nav>
 
-  <!-- Keep glow layers, match site hero -->
+  <div class="background" aria-hidden="true"></div>
+
+  <!-- Hero -->
   <header class="hero blog-hero" role="banner">
     <div class="hero-glow blog-hero-glow" aria-hidden="true"></div>
     <div class="particles blog-particles" aria-hidden="true"></div>
@@ -36,7 +41,7 @@
 
   <main id="main" class="home-section section-tint section-tint-a">
 
-    <!-- FILTER BAR -->
+    <!-- Filter -->
     <nav class="filter-bar" aria-label="Filter signals by domain">
       <a class="filter-pill" href="signals.html" data-filter="all">All</a>
       <a class="filter-pill" href="signals.html?lens=innovation" data-filter="innovation">Innovation</a>
@@ -45,9 +50,10 @@
       <a class="filter-pill" href="signals.html?lens=decision" data-filter="decision">Decision</a>
     </nav>
 
-    <!-- LIST -->
+    <!-- List -->
     <section class="blog-list latest-grid" id="signalsList" aria-label="Signals list">
 
+      <!-- Published -->
       <a class="blog-card" href="signals/constraint-promotes-innovation.html" data-lens="innovation">
         <div class="card-top">
           <span class="badge badge-signal">Signal 001</span>
@@ -61,8 +67,8 @@
         </div>
       </a>
 
-      <!-- Placeholders (optional) -->
-      <a class="blog-card" href="#" data-lens="innovation" aria-disabled="true">
+      <!-- Coming soon (non-clickable) -->
+      <div class="blog-card" data-lens="innovation" aria-disabled="true">
         <div class="card-top">
           <span class="badge badge-signal">Signal 002</span>
           <span class="card-meta">Coming soon</span>
@@ -73,9 +79,9 @@
           <span class="tag">Innovation</span>
           <span class="tag">Commercialisation</span>
         </div>
-      </a>
+      </div>
 
-      <a class="blog-card" href="#" data-lens="valence" aria-disabled="true">
+      <div class="blog-card" data-lens="valence" aria-disabled="true">
         <div class="card-top">
           <span class="badge badge-signal">Signal 003</span>
           <span class="card-meta">Coming soon</span>
@@ -86,9 +92,9 @@
           <span class="tag">Valence</span>
           <span class="tag">MRV</span>
         </div>
-      </a>
+      </div>
 
-      <a class="blog-card" href="#" data-lens="futures" aria-disabled="true">
+      <div class="blog-card" data-lens="futures" aria-disabled="true">
         <div class="card-top">
           <span class="badge badge-signal">Signal 004</span>
           <span class="card-meta">Coming soon</span>
@@ -99,7 +105,7 @@
           <span class="tag">Futures</span>
           <span class="tag">Policy</span>
         </div>
-      </a>
+      </div>
 
     </section>
 
@@ -120,14 +126,12 @@
       const params = new URLSearchParams(window.location.search);
       const lens = (params.get("lens") || "all").toLowerCase();
 
-      // activate pill
       document.querySelectorAll(".filter-pill").forEach(p => {
         const f = (p.getAttribute("data-filter") || "").toLowerCase();
         if (f === lens) p.classList.add("active");
         else p.classList.remove("active");
       });
 
-      // filter cards
       document.querySelectorAll("#signalsList .blog-card").forEach(card => {
         const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
         const show = (lens === "all") || (cardLens === lens);
