@@ -1,7 +1,6 @@
 /* ============================================================
-   DAVORen INSIGHTS — THINK TANK x FUTURIST (CLEAN PREMIUM)
-   Best-ROI updates: typography, spacing, card consistency,
-   section tinting, accessibility, hover polish.
+   DAVORen INSIGHTS — THINK TANK x FUTURIST (CLEAN PREMIUM v2)
+   Fixes: section overlap, hierarchy, router clarity, spacing rhythm.
 ============================================================ */
 
 /* ============ DESIGN SYSTEM ============ */
@@ -29,6 +28,12 @@
   --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
 
   --max: 1120px;
+
+  /* Rhythm */
+  --gutter: 16px;
+  --section-y: 26px;
+  --section-gap: 28px;   /* space between sections */
+  --card-pad: 18px;
 }
 
 /* ============ GLOBAL RESET ============ */
@@ -47,14 +52,13 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Improve perceived “authority” */
+/* Authority defaults */
 h1, h2, h3{
   letter-spacing: -0.02em;
   line-height: 1.12;
   margin: 0;
 }
 p{ margin: 0; }
-
 .muted{ color: var(--muted); }
 
 /* ============ ACCESSIBILITY ============ */
@@ -71,14 +75,12 @@ p{ margin: 0; }
 }
 .skip-link:focus{ left: 12px; outline: none; }
 
-/* Focus styles (clean, visible) */
 a:focus-visible, button:focus-visible{
   outline: 2px solid rgba(0,234,255,0.75);
   outline-offset: 3px;
   border-radius: 12px;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
@@ -89,8 +91,6 @@ a:focus-visible, button:focus-visible{
   inset: 0;
   z-index: -3;
   pointer-events: none;
-
-  /* Holographic grid + soft bloom */
   background:
     radial-gradient(circle at 18% 20%, rgba(0,234,255,0.12), transparent 52%),
     radial-gradient(circle at 80% 78%, rgba(141,107,255,0.10), transparent 55%),
@@ -122,9 +122,7 @@ a:focus-visible, button:focus-visible{
   gap: 18px;
   justify-content: center;
   align-items: center;
-
   padding: 14px 16px;
-
   background: rgba(5,6,13,0.72);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,255,255,0.10);
@@ -137,60 +135,14 @@ a:focus-visible, button:focus-visible{
   border: 1px solid transparent;
   transition: transform .2s ease, border .2s ease, background .2s ease;
 }
-
 .navbar a:hover{
   background: rgba(20,28,48,0.35);
   border: 1px solid rgba(0,255,255,0.10);
   transform: translateY(-1px);
 }
-
 .navbar a[aria-current="page"]{
   background: rgba(20,28,48,0.55);
   border: 1px solid rgba(0,234,255,0.18);
-}
-
-/* ============ INTRO OVERLAY ============ */
-.intro{
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(5,6,13,0.92);
-  backdrop-filter: blur(10px);
-  transition: opacity .55s ease, transform .55s ease;
-}
-
-.intro-title{
-  text-align:center;
-  font-size: clamp(32px, 4.6vw, 58px);
-  font-weight: 750;
-  letter-spacing: -0.03em;
-
-  /* Premium “ink” */
-  background: linear-gradient(90deg, rgba(229,244,255,1), rgba(229,244,255,0.82));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  text-shadow: 0 0 24px rgba(0,234,255,0.12);
-}
-
-.intro-title span{
-  display:block;
-  margin-top: 10px;
-  font-size: clamp(14px, 1.5vw, 18px);
-  font-weight: 520;
-  color: rgba(229,244,255,0.72);
-  letter-spacing: 0.02em;
-  text-shadow: none;
-}
-
-.intro.hide{
-  opacity: 0;
-  transform: translateY(-8px);
-  pointer-events: none;
 }
 
 /* ============ HERO ============ */
@@ -224,6 +176,9 @@ a:focus-visible, button:focus-visible{
 .format-promise{
   margin-top: 10px;
   font-size: 15px;
+  max-width: 74ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Glow layers */
@@ -250,7 +205,6 @@ a:focus-visible, button:focus-visible{
   pointer-events: none;
 }
 
-/* “Particles” without images */
 .particles{
   position:absolute;
   inset: 0;
@@ -262,14 +216,6 @@ a:focus-visible, button:focus-visible{
     radial-gradient(circle at 80% 40%, rgba(255,255,255,0.08) 0 1px, transparent 2px),
     radial-gradient(circle at 55% 70%, rgba(255,255,255,0.08) 0 1px, transparent 2px);
   filter: blur(0.1px);
-}
-
-/* ============ BLOG HERO (Signals / Essays / Insights) ============ */
-.blog-hero{
-  padding: 76px 16px 52px;
-}
-.blog-hero-content h1{
-  font-size: clamp(34px, 4.4vw, 54px);
 }
 
 /* ============ CTA BUTTONS ============ */
@@ -297,23 +243,19 @@ a:focus-visible, button:focus-visible{
 
   transition: transform .2s ease, border .2s ease, background .2s ease;
 }
-
 .btn:hover{
   transform: translateY(-2px);
   background: rgba(0,234,255,0.18);
   border: 1px solid rgba(0,234,255,0.34);
 }
-
 .btn-ghost{
   background: rgba(20,28,48,0.45);
   border: 1px solid rgba(0,255,255,0.14);
 }
-
 .btn-ghost:hover{
   background: rgba(20,28,48,0.62);
   border: 1px solid rgba(0,255,255,0.26);
 }
-
 .cta-text-link{
   color: rgba(229,244,255,0.78);
   padding: 10px 10px;
@@ -330,7 +272,16 @@ a:focus-visible, button:focus-visible{
 .home-section{
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
-  padding: 28px 0 10px;
+  padding: var(--section-y) 0 10px;
+
+  /* IMPORTANT: isolates section tint so it cannot bleed/overlap */
+  position: relative;
+  isolation: isolate;
+}
+
+/* Give sections breathing space so the page reads as blocks, not a stack */
+.home-section + .home-section{
+  margin-top: var(--section-gap);
 }
 
 .section-head{
@@ -340,27 +291,28 @@ a:focus-visible, button:focus-visible{
   gap: 16px;
   margin-bottom: 14px;
 }
-
 .section-head h2{
   font-size: 22px;
   font-weight: 780;
 }
-
 .section-sub{
   font-size: 14px;
 }
 
-/* Section tinting (subtle, not loud) */
-.section-tint{
-  position: relative;
-}
+/* Section tinting (subtle, bounded, non-overlapping) */
 .section-tint::before{
   content:"";
   position:absolute;
-  inset: -10px;
+  left: 0;
+  right: 0;
+  top: 6px;
+  bottom: 0;
   border-radius: var(--radius-lg);
   background: transparent;
   z-index: -1;
+
+  /* keep it feeling “inside the section” */
+  border: 1px solid rgba(255,255,255,0.06);
 }
 .section-tint-a::before{
   background: linear-gradient(135deg, rgba(0,234,255,0.05), rgba(141,107,255,0.03));
@@ -372,22 +324,28 @@ a:focus-visible, button:focus-visible{
   background: linear-gradient(135deg, rgba(255,75,241,0.05), rgba(0,234,255,0.03));
 }
 
-/* ============ CARDS (Latest + Lists) ============ */
+/* ============ GRIDS ============ */
 .latest-grid{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter);
+
+  /* prevents long words from forcing overflow */
+  align-items: stretch;
 }
 
-/* IMPORTANT: cards might be <a> or <div>. Keep identical styling. */
+/* ============ CARDS ============ */
 .blog-card{
   display:block;
-  padding: 16px 16px 14px;
+  padding: var(--card-pad);
   border-radius: var(--radius-lg);
   background: rgba(20,28,48,0.48);
   border: 1px solid rgba(0,255,255,0.10);
   box-shadow: var(--shadow-soft);
   transition: transform .22s ease, border .22s ease, background .22s ease;
+
+  /* key: stop cards “collapsing” and creating visual jitter */
+  min-height: 168px;
 }
 
 /* Hover only when interactive */
@@ -402,33 +360,58 @@ a.blog-card:hover{
   align-items:center;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-
 .card-meta{
   font-size: 13px;
   color: rgba(229,244,255,0.70);
+  white-space: nowrap;
 }
 
 .blog-card h3{
   font-size: 18px;
   font-weight: 760;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   line-height: 1.18;
+  max-width: 34ch;
 }
-
 .blog-card p{
   color: rgba(229,244,255,0.80);
   font-size: 14px;
+  line-height: 1.45;
+  max-width: 56ch;
 }
 
+/* Router mode: cards used as primary navigation tiles (no tags, no clutter)
+   Auto-detect: if there are no .card-tags inside, treat as router tile. */
+.blog-card:not(:has(.card-tags)){
+  background: rgba(20,28,48,0.42);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.blog-card:not(:has(.card-tags)) h3{
+  font-size: 17px;
+  font-weight: 780;
+}
+.blog-card:not(:has(.card-tags)) p{
+  color: rgba(229,244,255,0.76);
+}
+
+/* Fallback for browsers without :has() support:
+   add class "router-card" if needed later. */
+.router-card{
+  background: rgba(20,28,48,0.42) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+.router-card h3{ font-size: 17px; font-weight: 780; }
+.router-card p{ color: rgba(229,244,255,0.76); }
+
+/* Tags (still used in content cards across the site) */
 .card-tags{
   margin-top: 12px;
   display:flex;
   gap: 8px;
   flex-wrap: wrap;
 }
-
 .tag{
   font-size: 12px;
   padding: 6px 10px;
@@ -452,7 +435,7 @@ a.blog-card:hover{
 .badge-essay{ border-color: rgba(255,75,241,0.30); }
 .badge-framework{ border-color: rgba(141,107,255,0.30); }
 
-/* Disabled/coming soon cards */
+/* Disabled/coming soon */
 .blog-card[aria-disabled="true"]{
   opacity: 0.72;
   cursor: default;
@@ -460,41 +443,35 @@ a.blog-card:hover{
   filter: saturate(0.92);
 }
 
-/* Lens tint helpers (site-wide identity) */
+/* Lens identity */
 .blog-card[data-lens="innovation"]{ border-top: 3px solid rgba(0,234,255,0.55); }
 .blog-card[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.55); }
 .blog-card[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.55); }
 .blog-card[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.52); }
 
-/* ============ TILES (Core domains) ============ */
+/* ============ TILES (if used on other pages) ============ */
 .tiles{
   display:grid;
   gap: 16px;
 }
-
 .tiles-4{
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-
 .tile{
   position: relative;
   display:block;
   padding: 16px 16px 14px;
   border-radius: var(--radius-lg);
-
   background: rgba(20,28,48,0.52);
   border: 1px solid rgba(0,255,255,0.10);
   box-shadow: var(--shadow-soft);
-
   transition: transform .22s ease, border .22s ease, background .22s ease;
 }
-
 .tile:hover{
   transform: translateY(-6px);
   border: 1px solid rgba(0,234,255,0.24);
   background: rgba(20,28,48,0.62);
 }
-
 .tile-kicker{
   display:inline-block;
   font-size: 12px;
@@ -503,35 +480,26 @@ a.blog-card:hover{
   color: rgba(229,244,255,0.70);
   margin-bottom: 8px;
 }
-
 .tile h3{
   font-size: 16px;
   font-weight: 780;
   margin-bottom: 6px;
 }
-
 .tile p{
   font-size: 13px;
   color: rgba(229,244,255,0.78);
 }
-
-/* Domain identity via subtle top line (no images) */
 .tile[data-lens="innovation"]{ border-top: 3px solid rgba(0,234,255,0.75); }
 .tile[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.75); }
 .tile[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.75); }
 .tile[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.70); }
 
-/* Innovation tile-bg exists in HTML — now it's a subtle luminous wash (NO IMAGE) */
-.lens-tile{
-  overflow: hidden;
-}
+.lens-tile{ overflow: hidden; }
 .lens-tile .tile-bg{
   position:absolute;
   inset: 0;
   z-index: 0;
   opacity: 0.95;
-
-  /* No image — just a restrained gradient */
   background: linear-gradient(
     135deg,
     rgba(0,234,255,0.06),
@@ -544,32 +512,22 @@ a.blog-card:hover{
   z-index: 1;
 }
 
-/* ============ BLOG CONTAINER / LIST WRAPPERS ============ */
-.blog-container{
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  padding: 28px 0 10px;
-}
-.blog-list{
-  width: 100%;
-}
-
 /* ============ LATEST FOOTER LINK ============ */
 .latest-footer{
   margin-top: 14px;
   display:flex;
   justify-content:flex-end;
   gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
 }
-
-/* Helper: align left without inline styles */
 .latest-footer-left{
   justify-content: flex-start;
 }
 
 .text-link{
   color: rgba(229,244,255,0.82);
-  padding: 10px 10px;
+  padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.08);
   background: rgba(20,28,48,0.25);
@@ -581,183 +539,7 @@ a.blog-card:hover{
   background: rgba(20,28,48,0.40);
 }
 
-/* ============ FOLLOW STRIP ============ */
-.follow-strip{
-  margin-top: 44px;
-  padding: 28px 16px;
-  border-top: 1px solid rgba(0,255,255,0.10);
-  background: rgba(5,6,13,0.45);
-  backdrop-filter: blur(8px);
-}
-
-.follow-inner{
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.follow-inner h2{
-  font-size: 20px;
-  font-weight: 780;
-}
-
-.follow-cta{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-/* ============ FOOTER ============ */
-.footer{
-  padding: 22px 16px 38px;
-  text-align: center;
-  border-top: 1px solid rgba(0,255,255,0.08);
-}
-
-.footer .footer-links{
-  margin-top: 10px;
-  color: rgba(229,244,255,0.70);
-}
-.footer .footer-links a{
-  color: rgba(229,244,255,0.82);
-  border-bottom: 1px solid rgba(255,255,255,0.18);
-}
-.footer .footer-links a:hover{
-  border-bottom: 1px solid rgba(0,234,255,0.35);
-}
-
-/* ============ RESPONSIVE ============ */
-@media (max-width: 980px){
-  .tiles-4{ grid-template-columns: repeat(2, 1fr); }
-  .latest-grid{ grid-template-columns: repeat(2, 1fr); }
-  .follow-inner{ flex-direction: column; align-items: flex-start; }
-}
-
-@media (max-width: 620px){
-  .latest-grid{ grid-template-columns: 1fr; }
-  .tiles-4{ grid-template-columns: 1fr; }
-  .hero{ padding: 76px 16px 56px; }
-}
-
-/* Insights landing split */
-.insights-split{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.insights-card{
-  min-height: 210px;
-}
-
-@media (max-width: 620px){
-  .insights-split{ grid-template-columns: 1fr; }
-}
-
-/* ===========================
-   ARTICLE / SIGNAL TEMPLATE
-=========================== */
-
-.article-container{
-  width: min(760px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 34px 0 18px;
-}
-
-.article-head{
-  padding: 16px 0 6px;
-}
-
-.article-kicker{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.article-title{
-  font-size: clamp(30px, 3.4vw, 44px);
-  font-weight: 820;
-  letter-spacing: -0.03em;
-  margin-bottom: 10px;
-  text-shadow: 0 0 24px rgba(0,234,255,0.10);
-}
-
-.article-subtitle{
-  font-size: 16px;
-  color: rgba(229,244,255,0.82);
-  margin-bottom: 14px;
-}
-
-.article-meta{
-  font-size: 13px;
-  color: rgba(229,244,255,0.70);
-}
-
-.article-type{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 780;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.article-type.signal{
-  border-color: rgba(0,234,255,0.30);
-  color: rgba(229,244,255,0.88);
-}
-
-.article-type.essay{
-  border-color: rgba(255,75,241,0.28);
-  color: rgba(229,244,255,0.90);
-}
-
-/* Divider */
-.article-divider{
-  border: none;
-  height: 1px;
-  margin: 18px 0;
-  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.22), transparent);
-}
-
-/* Tags row (reuse existing .tag pills) */
-.article-tags{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-/* Strategic note */
-.strategic-note{
-  margin: 10px 0 0;
-  padding: 14px 14px;
-  border-radius: 16px;
-  background: rgba(0,234,255,0.07);
-  border: 1px solid rgba(0,234,255,0.16);
-  color: rgba(229,244,255,0.88);
-  font-weight: 620;
-}
-
-/* Responsive */
-@media (max-width: 620px){
-  .article-container{ padding-top: 26px; }
-  .article-kicker{ flex-direction: column; align-items: flex-start; }
-}
-
-/* ===========================
-   FILTER BAR (Signals / Essays)
-=========================== */
-
+/* ============ FILTER BAR ============ */
 .filter-bar{
   display:flex;
   gap: 10px;
@@ -771,90 +553,190 @@ a.blog-card:hover{
   justify-content:center;
   padding: 8px 12px;
   border-radius: 999px;
-
   font-size: 12px;
   font-weight: 720;
   letter-spacing: 0.02em;
-
   background: rgba(20,28,48,0.40);
   border: 1px solid rgba(0,255,255,0.10);
   color: rgba(229,244,255,0.82);
-
   transition: transform .18s ease, border .18s ease, background .18s ease;
 }
-
 .filter-pill:hover{
   transform: translateY(-2px);
   background: rgba(20,28,48,0.58);
   border: 1px solid rgba(0,234,255,0.22);
 }
-
 .filter-pill.active{
   background: rgba(0,234,255,0.14);
   border: 1px solid rgba(0,234,255,0.28);
 }
 
-/* ===========================
-   ACADEMY PANEL
-=========================== */
+/* ============ FOLLOW STRIP ============ */
+.follow-strip{
+  margin-top: 44px;
+  padding: 28px 16px;
+  border-top: 1px solid rgba(0,255,255,0.10);
+  background: rgba(5,6,13,0.45);
+  backdrop-filter: blur(8px);
+}
+.follow-inner{
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.follow-inner h2{
+  font-size: 20px;
+  font-weight: 780;
+}
+.follow-cta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 
+/* ============ FOOTER ============ */
+.footer{
+  padding: 22px 16px 38px;
+  text-align: center;
+  border-top: 1px solid rgba(0,255,255,0.08);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 980px){
+  .tiles-4{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .latest-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .follow-inner{ flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 620px){
+  .latest-grid{ grid-template-columns: 1fr; }
+  .tiles-4{ grid-template-columns: 1fr; }
+  .hero{ padding: 76px 16px 56px; }
+}
+
+/* ===========================
+   ARTICLE / SIGNAL TEMPLATE
+=========================== */
+.article-container{
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 18px;
+}
+.article-head{ padding: 16px 0 6px; }
+.article-kicker{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.article-title{
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 820;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 24px rgba(0,234,255,0.10);
+}
+.article-subtitle{
+  font-size: 16px;
+  color: rgba(229,244,255,0.82);
+  margin-bottom: 14px;
+}
+.article-meta{
+  font-size: 13px;
+  color: rgba(229,244,255,0.70);
+}
+.article-type{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 780;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.article-type.signal{
+  border-color: rgba(0,234,255,0.30);
+  color: rgba(229,244,255,0.88);
+}
+.article-type.essay{
+  border-color: rgba(255,75,241,0.28);
+  color: rgba(229,244,255,0.90);
+}
+.article-divider{
+  border: none;
+  height: 1px;
+  margin: 18px 0;
+  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.22), transparent);
+}
+.article-tags{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.strategic-note{
+  margin: 10px 0 0;
+  padding: 14px 14px;
+  border-radius: 16px;
+  background: rgba(0,234,255,0.07);
+  border: 1px solid rgba(0,234,255,0.16);
+  color: rgba(229,244,255,0.88);
+  font-weight: 620;
+}
+@media (max-width: 620px){
+  .article-container{ padding-top: 26px; }
+  .article-kicker{ flex-direction: column; align-items: flex-start; }
+}
+
+/* ===========================
+   ACADEMY PANEL (kept)
+=========================== */
 .academy-panel{
   display:flex;
   justify-content: space-between;
   align-items:center;
   gap: 18px;
-
   padding: 20px;
   border-radius: var(--radius-lg);
-
   background: rgba(20,28,48,0.52);
   border: 1px solid rgba(141,107,255,0.16);
-
   box-shadow: var(--shadow-soft);
 }
-
 .academy-content h3{
   font-size: 18px;
   font-weight: 780;
   margin-bottom: 6px;
 }
-
 .academy-note{
   margin-top: 6px;
   font-size: 13px;
   color: rgba(229,244,255,0.65);
 }
-
-/* Status pill */
 .academy-status{
   padding: 8px 12px;
   border-radius: 999px;
-
   font-size: 12px;
   font-weight: 720;
   letter-spacing: 0.04em;
-
   background: rgba(141,107,255,0.12);
   border: 1px solid rgba(141,107,255,0.26);
 }
-
-/* Mobile */
 @media (max-width: 720px){
   .academy-panel{
     flex-direction: column;
     align-items:flex-start;
   }
 }
+
 /* ===========================
    DOMAIN PAGE HELPERS
 =========================== */
-
-/* Slightly tighter section spacing on portal pages */
-.domain-page .home-section{
-  padding-top: 22px;
-}
-
-/* Optional: make empty cards look intentional */
-.blog-card .muted{
-  color: var(--muted);
-}
+.domain-page .home-section{ padding-top: 22px; }
+.blog-card .muted{ color: var(--muted); }
