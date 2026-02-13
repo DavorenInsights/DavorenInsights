@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Academy — Davoren Insights</title>
-  <meta name="description" content="Academy: executive learning for systems transition." />
+
+  <!-- SEO -->
+  <meta name="description" content="Academy: selective executive learning for systems transition — introduced deliberately." />
   <meta name="robots" content="index,follow" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,47 +17,134 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- NAV (Synced) -->
   <nav class="navbar" aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="insights.html">Insights</a>
+    <a href="field-guides.html">Field Guides</a>
+    <a href="instruments.html">Strategic Instruments</a>
     <a href="academy.html" aria-current="page">Academy</a>
-    <a href="labs.html">Labs</a>
+    <a href="about.html">About</a>
+    <a href="index.html#engage">Engage</a>
   </nav>
 
   <div class="background" aria-hidden="true"></div>
 
-  <header class="blog-hero">
-    <div class="blog-hero-glow hero-glow" aria-hidden="true"></div>
-    <div class="blog-particles particles" aria-hidden="true"></div>
+  <!-- HERO (Synced pattern) -->
+  <header class="hero blog-hero" role="banner">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="particles" aria-hidden="true"></div>
+    <div class="hero-bottom-glow" aria-hidden="true"></div>
 
-    <div class="blog-hero-content hero-content">
+    <div class="hero-content blog-hero-content">
       <h1>Academy</h1>
-      <p>Executive learning for systems transition — introduced selectively.</p>
+      <p class="hero-sub">Selective executive learning for systems transition.</p>
+      <p class="format-promise muted">Not an LMS. Not bulk courses. Modular programs released deliberately.</p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#programs">Programs</a>
+        <a class="btn btn-ghost" href="insights.html">Read Insights</a>
+        <a class="cta-text-link" href="index.html#engage">Engage</a>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="home-section section-tint section-tint-b">
-    <div class="academy-panel">
-      <div class="academy-content">
-        <h3>Davoren Insights Academy</h3>
-        <p class="muted">
-          Courses will sit on GitHub Pages (fast, clean, indexable) and link to Labs when tools add value.
-        </p>
-        <p class="academy-note">Programs will appear here as they are developed.</p>
+  <main id="main">
+
+    <!-- POSITIONING -->
+    <section class="home-section section-tint section-tint-a" aria-labelledby="academy-title">
+      <div class="section-head">
+        <h2 id="academy-title">What this is</h2>
+        <p class="section-sub muted">A learning layer that complements the writing and instruments.</p>
       </div>
-      <div class="academy-actions">
-        <span class="academy-status">In development</span>
+
+      <div class="latest-grid">
+
+        <div class="blog-card" data-lens="decision">
+          <div class="card-top">
+            <span class="badge badge-framework">Format</span>
+            <span class="card-meta">Modular</span>
+          </div>
+          <h3>Selective programs</h3>
+          <p>Short, focused modules that clarify systems, constraints, and execution reality — without course bloat.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Modules</span>
+            <span class="tag">Clarity</span>
+            <span class="tag">Execution</span>
+          </div>
+        </div>
+
+        <div class="blog-card" data-lens="valence">
+          <div class="card-top">
+            <span class="badge badge-framework">Delivery</span>
+            <span class="card-meta">Lightweight</span>
+          </div>
+          <h3>GitHub-native</h3>
+          <p>Built on GitHub Pages for speed, simplicity, and indexing — with optional links to tools when useful.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">GitHub Pages</span>
+            <span class="tag">Indexable</span>
+            <span class="tag">Simple</span>
+          </div>
+        </div>
+
+        <div class="blog-card" data-lens="innovation">
+          <div class="card-top">
+            <span class="badge badge-framework">Goal</span>
+            <span class="card-meta">Practical</span>
+          </div>
+          <h3>Decision uplift</h3>
+          <p>Programs are designed to improve decision quality and sequencing — not to certify attendance.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Sequencing</span>
+            <span class="tag">Decision</span>
+            <span class="tag">Adoption</span>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="home-section section-tint section-tint-b" id="programs" aria-labelledby="programs-title">
+      <div class="section-head">
+        <h2 id="programs-title">Programs</h2>
+        <p class="section-sub muted">Introduced selectively.</p>
+      </div>
+
+      <div class="academy-panel">
+        <div class="academy-content">
+          <h3>Davoren Insights Academy</h3>
+          <p class="muted">
+            Programs will appear here as they are developed. Each program will include a clean overview,
+            recommended reading order, and optional companion links into Field Guides and Instruments.
+          </p>
+          <p class="academy-note">If you want a program built for your context, use Engage.</p>
+        </div>
+
+        <div class="academy-actions">
+          <span class="academy-status">In development</span>
+        </div>
+      </div>
+
+      <div class="latest-footer latest-footer-left" style="margin-top:14px;">
+        <a class="text-link" href="field-guides.html">Field Guides →</a>
+        <a class="text-link" href="instruments.html">Strategic Instruments →</a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
     <p>© 2026 Davoren Insights</p>
     <p class="muted">davoreninsights@gmail.com</p>
+
     <p class="footer-links">
-      <a href="index.html">Home</a> •
+      <a href="https://www.linkedin.com/in/YOUR-HANDLE-HERE" target="_blank" rel="noopener noreferrer">LinkedIn</a> •
+      <a href="about.html">About</a> •
       <a href="insights.html">Insights</a> •
-      <a href="labs.html">Labs</a>
+      <a href="field-guides.html">Field Guides</a> •
+      <a href="instruments.html">Strategic Instruments</a>
     </p>
   </footer>
 
