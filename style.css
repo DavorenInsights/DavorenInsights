@@ -977,3 +977,54 @@ a:focus-visible, button:focus-visible{
 @media (max-width: 620px){
   .article-container{ padding-top: 26px; }
 }
+/* ===========================
+   ACADEMY PANEL
+=========================== */
+
+.academy-panel{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 18px;
+
+  padding: 20px;
+  border-radius: var(--radius-lg);
+
+  background: rgba(20,28,48,0.52);
+  border: 1px solid rgba(141,107,255,0.16);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.academy-content h3{
+  font-size: 18px;
+  font-weight: 780;
+  margin-bottom: 6px;
+}
+
+.academy-note{
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(229,244,255,0.65);
+}
+
+/* Status pill */
+.academy-status{
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 720;
+  letter-spacing: 0.04em;
+
+  background: rgba(141,107,255,0.12);
+  border: 1px solid rgba(141,107,255,0.26);
+}
+
+/* Mobile */
+@media (max-width: 720px){
+  .academy-panel{
+    flex-direction: column;
+    align-items:flex-start;
+  }
+}
