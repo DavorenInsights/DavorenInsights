@@ -769,3 +769,51 @@ a:focus-visible, button:focus-visible{
   .signal-brief-grid{ grid-template-columns: 1fr; }
   .article-kicker{ flex-direction: column; align-items: flex-start; }
 }
+/* ===========================
+   FILTER BAR (Signals / Essays)
+=========================== */
+
+.filter-bar{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 6px 0 14px;
+}
+
+.filter-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 720;
+  letter-spacing: 0.02em;
+
+  background: rgba(20,28,48,0.40);
+  border: 1px solid rgba(0,255,255,0.10);
+  color: rgba(229,244,255,0.82);
+
+  transition: transform .18s ease, border .18s ease, background .18s ease;
+}
+
+.filter-pill:hover{
+  transform: translateY(-2px);
+  background: rgba(20,28,48,0.58);
+  border: 1px solid rgba(0,234,255,0.22);
+}
+
+.filter-pill.active{
+  background: rgba(0,234,255,0.14);
+  border: 1px solid rgba(0,234,255,0.28);
+}
+
+/* Optional: visually “disable” coming soon cards */
+.blog-card[aria-disabled="true"]{
+  opacity: 0.82;
+  cursor: not-allowed;
+}
+.blog-card[aria-disabled="true"]:hover{
+  transform: none;
+}
