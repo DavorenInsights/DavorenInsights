@@ -600,3 +600,17 @@ a:focus-visible, button:focus-visible{
   .hero{ padding: 76px 16px 56px; }
 }
 
+/* Insights landing split */
+.insights-split{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.insights-card{
+  min-height: 210px;
+}
+
+@media (max-width: 620px){
+  .insights-split{ grid-template-columns: 1fr; }
+}
