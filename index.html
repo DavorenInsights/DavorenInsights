@@ -7,7 +7,7 @@
   <title>Davoren Insights</title>
 
   <meta name="description"
-        content="Davoren Insights interprets signals and designs systems for transition. Signals, essays, field guides, and strategic instruments for decision-ready clarity." />
+        content="Davoren Insights interprets signals and designs systems for transition. Strategic writing, field guides, and strategic instruments for decision-ready clarity." />
   <meta name="robots" content="index,follow" />
 
   <link rel="stylesheet" href="style.css"/>
@@ -45,8 +45,8 @@
       </p>
 
       <div class="hero-cta">
-        <a class="btn" href="insights.html">Read</a>
-        <a class="btn btn-ghost" href="field-guides.html">Field Guides</a>
+        <a class="btn" href="#navigate">Explore</a>
+        <a class="btn btn-ghost" href="insights.html">Read</a>
         <a class="cta-text-link" href="instruments.html">Strategic Instruments</a>
       </div>
     </div>
@@ -54,71 +54,83 @@
 
   <main id="main">
 
-    <!-- PLATFORM LEGEND (compact, fast comprehension) -->
-    <section class="home-section section-tint section-tint-a" aria-labelledby="legend-title">
+    <!-- ROUTER: three primary paths -->
+    <section class="home-section section-tint section-tint-a" id="navigate" aria-labelledby="nav-title">
       <div class="section-head">
-        <h2 id="legend-title">The platform, in four layers</h2>
-        <p class="section-sub muted">Different purpose. Same system.</p>
+        <h2 id="nav-title">Choose a path</h2>
+        <p class="section-sub muted">Three entry points. Clear intent.</p>
       </div>
 
       <div class="latest-grid">
 
-        <div class="blog-card">
+        <a href="insights.html" class="blog-card" data-lens="futures">
           <div class="card-top">
-            <span class="badge badge-signal">Signals</span>
-            <span class="card-meta">Detection</span>
+            <span class="badge badge-essay">Strategic Writing</span>
+            <span class="card-meta">Signals + Essays</span>
           </div>
-          <h3>What is shifting</h3>
-          <p>Short observations that flag structural change and early risk indicators.</p>
-        </div>
-
-        <div class="blog-card">
-          <div class="card-top">
-            <span class="badge badge-essay">Strategic Essays</span>
-            <span class="card-meta">Interpretation</span>
+          <h3>Signals and strategic essays</h3>
+          <p>Detection and interpretation — written to reduce decision ambiguity and expose execution risk.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Signals</span>
+            <span class="tag">Second-order</span>
+            <span class="tag">Execution</span>
           </div>
-          <h3>What it means</h3>
-          <p>Long-form synthesis: implications, second-order effects, and execution realities.</p>
-        </div>
+        </a>
 
-        <div class="blog-card">
+        <a href="field-guides.html" class="blog-card" data-lens="innovation">
           <div class="card-top">
             <span class="badge badge-framework">Field Guides</span>
             <span class="card-meta">Orientation</span>
           </div>
-          <h3>How the domain works</h3>
-          <p>Architecture maps and constraint patterns for correct reasoning.</p>
-        </div>
-
-      </div>
-
-      <div class="latest-footer latest-footer-left">
-        <a class="text-link" href="instruments.html">Strategic Instruments →</a>
-      </div>
-    </section>
-
-    <!-- FEATURED (proof, not feed) -->
-    <section class="home-section section-tint section-tint-b" aria-labelledby="featured-title">
-      <div class="section-head">
-        <h2 id="featured-title">Featured</h2>
-        <p class="section-sub muted">Two pieces that define tone and method.</p>
-      </div>
-
-      <div class="latest-grid">
-
-        <a href="signals/constraint-promotes-innovation.html" class="blog-card" data-lens="innovation">
-          <div class="card-top">
-            <span class="badge badge-signal">Signal 001</span>
-            <span class="card-meta">Feb 2026 • 3 min</span>
-          </div>
-          <h3>Constraint Promotes Innovation</h3>
-          <p>A governing principle for how systems redesign under pressure.</p>
+          <h3>Architecture maps and constraint logic</h3>
+          <p>Domain structure, minimum viable models, and the mechanics behind transition systems.</p>
           <div class="card-tags" aria-label="Tags">
-            <span class="tag">Innovation</span>
+            <span class="tag">Architecture</span>
+            <span class="tag">Constraints</span>
             <span class="tag">Systems</span>
           </div>
         </a>
 
+        <a href="instruments.html" class="blog-card" data-lens="decision">
+          <div class="card-top">
+            <span class="badge badge-framework">Strategic Instruments</span>
+            <span class="card-meta">Structured tools</span>
+          </div>
+          <h3>Decision instruments and diagnostic layers</h3>
+          <p>Explained tools — what they measure, how they structure reasoning, and where they fit.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Diagnostics</span>
+            <span class="tag">Readiness</span>
+            <span class="tag">Risk</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- DOMAINS: keep as lightweight filter row -->
+    <section class="home-section section-tint section-tint-b" aria-labelledby="domains-title">
+      <div class="section-head">
+        <h2 id="domains-title">Explore by lens</h2>
+        <p class="section-sub muted">A single lens view across the platform.</p>
+      </div>
+
+      <div class="filter-bar" role="navigation" aria-label="Explore by domain lens">
+        <a class="filter-pill" href="domain.html?lens=innovation">Innovation</a>
+        <a class="filter-pill" href="domain.html?lens=valence">Valence</a>
+        <a class="filter-pill" href="domain.html?lens=futures">Futures</a>
+        <a class="filter-pill" href="domain.html?lens=decision">Decision</a>
+      </div>
+    </section>
+
+    <!-- SINGLE FEATURE: proof without turning home into a feed -->
+    <section class="home-section section-tint section-tint-c" aria-labelledby="featured-title">
+      <div class="section-head">
+        <h2 id="featured-title">Featured</h2>
+        <p class="section-sub muted">One anchor piece. Decision-grade depth.</p>
+      </div>
+
+      <div class="latest-grid" style="grid-template-columns: 1fr;">
         <a href="essays/most-read-framework.html" class="blog-card" data-lens="decision">
           <div class="card-top">
             <span class="badge badge-framework">Anchor Essay</span>
@@ -127,62 +139,10 @@
           <h3>Integration Risk Framework</h3>
           <p>A map of execution failure modes in complex transitions.</p>
           <div class="card-tags" aria-label="Tags">
-            <span class="tag">Risk</span>
-            <span class="tag">Framework</span>
+            <span class="tag">Coordination</span>
+            <span class="tag">Sequencing</span>
+            <span class="tag">Delivery Risk</span>
           </div>
-        </a>
-
-        <!-- Optional third card: remove if it still feels heavy -->
-        <a href="instruments/innovation-intelligence-instrument.html" class="blog-card" data-lens="decision">
-          <div class="card-top">
-            <span class="badge badge-framework">Instrument</span>
-            <span class="card-meta">Public layer</span>
-          </div>
-          <h3>Innovation Intelligence Instrument</h3>
-          <p>Readiness mapping across constraints, sequencing, and execution risk.</p>
-          <div class="card-tags" aria-label="Tags">
-            <span class="tag">Readiness</span>
-            <span class="tag">Constraints</span>
-            <span class="tag">Execution</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- CORE DOMAINS (structure) -->
-    <section class="home-section section-tint section-tint-c" aria-labelledby="domains-title">
-      <div class="section-head">
-        <h2 id="domains-title">Core domains</h2>
-        <p class="section-sub muted">Explore the platform by lens.</p>
-      </div>
-
-      <div class="tiles tiles-4">
-        <a class="tile lens-tile" data-lens="innovation" href="domain.html?lens=innovation">
-          <div class="tile-bg" aria-hidden="true"></div>
-          <div class="tile-content">
-            <span class="tile-kicker">Innovation</span>
-            <h3>Innovation Architectures</h3>
-            <p>Constraint-driven redesign. Adoption reality. Edge examples.</p>
-          </div>
-        </a>
-
-        <a class="tile" data-lens="valence" href="domain.html?lens=valence">
-          <span class="tile-kicker">Valence</span>
-          <h3>Valence Systems</h3>
-          <p>Carbon as infrastructure. MRV logic. Incentives + integrity.</p>
-        </a>
-
-        <a class="tile" data-lens="futures" href="domain.html?lens=futures">
-          <span class="tile-kicker">Futures</span>
-          <h3>Directional Intelligence</h3>
-          <p>Signals. Second-order effects. Opportunity windows.</p>
-        </a>
-
-        <a class="tile" data-lens="decision" href="domain.html?lens=decision">
-          <span class="tile-kicker">Decision</span>
-          <h3>Decision Systems</h3>
-          <p>Coordination failure. Decision friction. Adoption reality.</p>
         </a>
       </div>
     </section>
