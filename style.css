@@ -817,3 +817,106 @@ a:focus-visible, button:focus-visible{
 .blog-card[aria-disabled="true"]:hover{
   transform: none;
 }
+/* ===========================
+   ESSAY ENHANCEMENTS
+=========================== */
+
+.article-type.essay{
+  border-color: rgba(255,75,241,0.28);
+  color: rgba(229,244,255,0.90);
+}
+
+/* Thesis box */
+.essay-thesis{
+  border-radius: var(--radius-lg);
+  background: rgba(20,28,48,0.52);
+  border: 1px solid rgba(255,75,241,0.12);
+  box-shadow: var(--shadow-soft);
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.essay-thesis-row{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.essay-thesis-item{
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 12px;
+}
+
+.essay-thesis-item h3{
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(229,244,255,0.68);
+  margin-bottom: 6px;
+}
+
+.essay-thesis-item p{
+  font-size: 14px;
+  color: rgba(229,244,255,0.84);
+}
+
+/* Mini TOC */
+.mini-toc{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items:center;
+
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(20,28,48,0.28);
+  border: 1px solid rgba(0,255,255,0.10);
+  margin: 6px 0 10px;
+}
+
+.mini-toc-label{
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.mini-toc a{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(229,244,255,0.80);
+  transition: transform .18s ease, border .18s ease, background .18s ease;
+}
+
+.mini-toc a:hover{
+  transform: translateY(-2px);
+  background: rgba(20,28,48,0.50);
+  border: 1px solid rgba(0,234,255,0.22);
+}
+
+/* Lists inside articles */
+.article-list{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: rgba(229,244,255,0.82);
+}
+.article-list li{
+  margin: 8px 0;
+}
+
+/* Executive brief */
+.executive-brief{
+  border-radius: 18px;
+  background: rgba(141,107,255,0.10);
+  border: 1px solid rgba(141,107,255,0.18);
+  padding: 14px 14px;
+  color: rgba(229,244,255,0.88);
+}
+
+/* Responsive */
+@media (max-width: 620px){
+  .essay-thesis-row{ grid-template-columns: 1fr; }
+}
