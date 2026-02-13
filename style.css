@@ -845,3 +845,16 @@ a.blog-card:hover{
     align-items:flex-start;
   }
 }
+/* ===========================
+   DOMAIN PAGE HELPERS
+=========================== */
+
+/* Slightly tighter section spacing on portal pages */
+.domain-page .home-section{
+  padding-top: 22px;
+}
+
+/* Optional: make empty cards look intentional */
+.blog-card .muted{
+  color: var(--muted);
+}
