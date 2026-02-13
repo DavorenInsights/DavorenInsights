@@ -264,6 +264,14 @@ a:focus-visible, button:focus-visible{
   filter: blur(0.1px);
 }
 
+/* ============ BLOG HERO (Signals / Essays / Insights) ============ */
+.blog-hero{
+  padding: 76px 16px 52px;
+}
+.blog-hero-content h1{
+  font-size: clamp(34px, 4.4vw, 54px);
+}
+
 /* ============ CTA BUTTONS ============ */
 .hero-cta{
   margin-top: 26px;
@@ -364,13 +372,14 @@ a:focus-visible, button:focus-visible{
   background: linear-gradient(135deg, rgba(255,75,241,0.05), rgba(0,234,255,0.03));
 }
 
-/* ============ CARDS (Latest + Start here) ============ */
+/* ============ CARDS (Latest + Lists) ============ */
 .latest-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
+/* IMPORTANT: cards might be <a> or <div>. Keep identical styling. */
 .blog-card{
   display:block;
   padding: 16px 16px 14px;
@@ -381,7 +390,8 @@ a:focus-visible, button:focus-visible{
   transition: transform .22s ease, border .22s ease, background .22s ease;
 }
 
-.blog-card:hover{
+/* Hover only when interactive */
+a.blog-card:hover{
   transform: translateY(-6px);
   border: 1px solid rgba(0,234,255,0.24);
   background: rgba(20,28,48,0.60);
@@ -404,6 +414,7 @@ a:focus-visible, button:focus-visible{
   font-size: 18px;
   font-weight: 760;
   margin-bottom: 6px;
+  line-height: 1.18;
 }
 
 .blog-card p{
@@ -440,6 +451,20 @@ a:focus-visible, button:focus-visible{
 .badge-signal{ border-color: rgba(0,234,255,0.30); }
 .badge-essay{ border-color: rgba(255,75,241,0.30); }
 .badge-framework{ border-color: rgba(141,107,255,0.30); }
+
+/* Disabled/coming soon cards */
+.blog-card[aria-disabled="true"]{
+  opacity: 0.72;
+  cursor: default;
+  pointer-events: none;
+  filter: saturate(0.92);
+}
+
+/* Lens tint helpers (site-wide identity) */
+.blog-card[data-lens="innovation"]{ border-top: 3px solid rgba(0,234,255,0.55); }
+.blog-card[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.55); }
+.blog-card[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.55); }
+.blog-card[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.52); }
 
 /* ============ TILES (Core domains) ============ */
 .tiles{
@@ -519,12 +544,29 @@ a:focus-visible, button:focus-visible{
   z-index: 1;
 }
 
+/* ============ BLOG CONTAINER / LIST WRAPPERS ============ */
+.blog-container{
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 10px;
+}
+.blog-list{
+  width: 100%;
+}
+
 /* ============ LATEST FOOTER LINK ============ */
 .latest-footer{
   margin-top: 14px;
   display:flex;
   justify-content:flex-end;
+  gap: 10px;
 }
+
+/* Helper: align left without inline styles */
+.latest-footer-left{
+  justify-content: flex-start;
+}
+
 .text-link{
   color: rgba(229,244,255,0.82);
   padding: 10px 10px;
@@ -614,6 +656,7 @@ a:focus-visible, button:focus-visible{
 @media (max-width: 620px){
   .insights-split{ grid-template-columns: 1fr; }
 }
+
 /* ===========================
    ARTICLE / SIGNAL TEMPLATE
 =========================== */
@@ -674,6 +717,11 @@ a:focus-visible, button:focus-visible{
   color: rgba(229,244,255,0.88);
 }
 
+.article-type.essay{
+  border-color: rgba(255,75,241,0.28);
+  color: rgba(229,244,255,0.90);
+}
+
 /* Divider */
 .article-divider{
   border: none;
@@ -682,66 +730,11 @@ a:focus-visible, button:focus-visible{
   background: linear-gradient(90deg, transparent, rgba(0,255,255,0.22), transparent);
 }
 
-/* Body typography */
-.article-body{
-  padding: 4px 0 6px;
-}
-
-.article-section{
-  margin: 18px 0 22px;
-}
-
-.article-section h2{
-  font-size: 18px;
-  font-weight: 820;
-  margin-bottom: 8px;
-}
-
-.article-section p{
-  font-size: 15px;
-  color: rgba(229,244,255,0.82);
-}
-
 /* Tags row (reuse existing .tag pills) */
 .article-tags{
   display:flex;
   flex-wrap: wrap;
   gap: 8px;
-}
-
-/* Signal brief box (high ROI) */
-.signal-brief{
-  border-radius: var(--radius-lg);
-  background: rgba(20,28,48,0.50);
-  border: 1px solid rgba(0,255,255,0.12);
-  box-shadow: var(--shadow-soft);
-  padding: 14px;
-}
-
-.signal-brief-grid{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.signal-brief-item{
-  border-radius: 14px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 12px;
-}
-
-.signal-brief-item h3{
-  font-size: 12px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: rgba(229,244,255,0.68);
-  margin-bottom: 6px;
-}
-
-.signal-brief-item p{
-  font-size: 14px;
-  color: rgba(229,244,255,0.82);
 }
 
 /* Strategic note */
@@ -755,20 +748,12 @@ a:focus-visible, button:focus-visible{
   font-weight: 620;
 }
 
-/* Article nav */
-.article-nav{
-  margin-top: 18px;
-  display:flex;
-  gap: 10px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
 /* Responsive */
 @media (max-width: 620px){
-  .signal-brief-grid{ grid-template-columns: 1fr; }
+  .article-container{ padding-top: 26px; }
   .article-kicker{ flex-direction: column; align-items: flex-start; }
 }
+
 /* ===========================
    FILTER BAR (Signals / Essays)
 =========================== */
@@ -809,174 +794,6 @@ a:focus-visible, button:focus-visible{
   border: 1px solid rgba(0,234,255,0.28);
 }
 
-/* Optional: visually “disable” coming soon cards */
-.blog-card[aria-disabled="true"]{
-  opacity: 0.82;
-  cursor: not-allowed;
-}
-.blog-card[aria-disabled="true"]:hover{
-  transform: none;
-}
-/* ===========================
-   ESSAY ENHANCEMENTS
-=========================== */
-
-.article-type.essay{
-  border-color: rgba(255,75,241,0.28);
-  color: rgba(229,244,255,0.90);
-}
-
-/* Thesis box */
-.essay-thesis{
-  border-radius: var(--radius-lg);
-  background: rgba(20,28,48,0.52);
-  border: 1px solid rgba(255,75,241,0.12);
-  box-shadow: var(--shadow-soft);
-  padding: 14px;
-  margin-bottom: 14px;
-}
-
-.essay-thesis-row{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.essay-thesis-item{
-  border-radius: 14px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 12px;
-}
-
-.essay-thesis-item h3{
-  font-size: 12px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: rgba(229,244,255,0.68);
-  margin-bottom: 6px;
-}
-
-.essay-thesis-item p{
-  font-size: 14px;
-  color: rgba(229,244,255,0.84);
-}
-
-/* Mini TOC */
-.mini-toc{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items:center;
-
-  padding: 10px 12px;
-  border-radius: 16px;
-  background: rgba(20,28,48,0.28);
-  border: 1px solid rgba(0,255,255,0.10);
-  margin: 6px 0 10px;
-}
-
-.mini-toc-label{
-  font-size: 12px;
-  margin-right: 6px;
-}
-
-.mini-toc a{
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.20);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: rgba(229,244,255,0.80);
-  transition: transform .18s ease, border .18s ease, background .18s ease;
-}
-
-.mini-toc a:hover{
-  transform: translateY(-2px);
-  background: rgba(20,28,48,0.50);
-  border: 1px solid rgba(0,234,255,0.22);
-}
-
-/* Lists inside articles */
-.article-list{
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: rgba(229,244,255,0.82);
-}
-.article-list li{
-  margin: 8px 0;
-}
-
-/* Executive brief */
-.executive-brief{
-  border-radius: 18px;
-  background: rgba(141,107,255,0.10);
-  border: 1px solid rgba(141,107,255,0.18);
-  padding: 14px 14px;
-  color: rgba(229,244,255,0.88);
-}
-
-/* Responsive */
-@media (max-width: 620px){
-  .essay-thesis-row{ grid-template-columns: 1fr; }
-}
-/* ============================================================
-   ROI PATCH — page consistency + missing classes
-   (Paste at END of style.css)
-============================================================ */
-
-/* Blog pages were using blog-container/blog-list without styles */
-.blog-container{
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-  padding: 28px 0 10px;
-}
-
-/* blog-list becomes a neutral wrapper (grid is handled by .latest-grid) */
-.blog-list{
-  width: 100%;
-}
-
-/* Make blog hero automatically inherit the main hero system */
-.blog-hero{
-  padding: 76px 16px 52px; /* slightly tighter than homepage hero */
-}
-.blog-hero-content h1{
-  font-size: clamp(34px, 4.4vw, 54px);
-}
-
-/* Keep compatibility with older class names (no harm) */
-.blog-hero-glow{ /* points to .hero-glow in HTML now; keep for legacy */
-}
-.blog-particles{ /* points to .particles in HTML now; keep for legacy */
-}
-
-/* Improve card tap targets + ensure consistent layout in lists */
-.blog-card h3{ line-height: 1.18; }
-
-/* Disabled/coming soon cards: truly non-interactive */
-.blog-card[aria-disabled="true"]{
-  opacity: 0.72;
-  cursor: default;
-  pointer-events: none;
-  filter: saturate(0.92);
-}
-
-/* If you want “coming soon” visible but still not clickable,
-   wrap the card in a div instead. For now this is safest. */
-
-/* Tighten card motion for users who prefer reduced motion (already global) */
-
-/* Lens tint helpers (optional) for future use on cards */
-.blog-card[data-lens="innovation"]{ border-top: 3px solid rgba(0,234,255,0.55); }
-.blog-card[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.55); }
-.blog-card[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.55); }
-.blog-card[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.52); }
-
-/* Make article container breathe slightly on small screens */
-@media (max-width: 620px){
-  .article-container{ padding-top: 26px; }
-}
 /* ===========================
    ACADEMY PANEL
 =========================== */
