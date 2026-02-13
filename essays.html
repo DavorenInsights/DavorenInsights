@@ -1,6 +1,3 @@
-<!-- =========================
-     essays.html  (FULL FILE)
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +17,10 @@
 
   <nav class="navbar" aria-label="Primary">
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
     <a href="insights.html">Insights</a>
+    <a href="labs.html">Labs</a>
+    <a href="academy.html">Academy</a>
+    <a href="about.html">About</a>
   </nav>
 
   <div class="background" aria-hidden="true"></div>
@@ -39,59 +38,71 @@
     </div>
   </header>
 
-  <main id="main" class="home-section section-tint section-tint-b">
+  <main id="main">
 
-    <!-- Filter -->
-    <nav class="filter-bar" aria-label="Filter essays by domain">
-      <a class="filter-pill" href="essays.html" data-filter="all">All</a>
-      <a class="filter-pill" href="essays.html?lens=innovation" data-filter="innovation">Innovation</a>
-      <a class="filter-pill" href="essays.html?lens=valence" data-filter="valence">Valence</a>
-      <a class="filter-pill" href="essays.html?lens=futures" data-filter="futures">Futures</a>
-      <a class="filter-pill" href="essays.html?lens=decision" data-filter="decision">Decision</a>
-    </nav>
+    <section class="home-section section-tint section-tint-b" aria-labelledby="essays-title">
+      <div class="section-head">
+        <h2 id="essays-title">Browse essays</h2>
+        <p class="section-sub muted">Filter by domain.</p>
+      </div>
 
-    <!-- List -->
-    <section class="blog-list latest-grid" id="essaysList" aria-label="Essays list">
+      <!-- Filter -->
+      <nav class="filter-bar" aria-label="Filter essays by domain">
+        <a class="filter-pill" href="essays.html" data-filter="all">All</a>
+        <a class="filter-pill" href="essays.html?lens=innovation" data-filter="innovation">Innovation</a>
+        <a class="filter-pill" href="essays.html?lens=valence" data-filter="valence">Valence</a>
+        <a class="filter-pill" href="essays.html?lens=futures" data-filter="futures">Futures</a>
+        <a class="filter-pill" href="essays.html?lens=decision" data-filter="decision">Decision</a>
+      </nav>
 
-      <!-- Published -->
-      <a class="blog-card" href="essays/ev-signals-emerging-markets.html" data-lens="futures">
-        <div class="card-top">
-          <span class="badge badge-essay">Essay</span>
-          <span class="card-meta">Feb 2026 • 9 min</span>
-        </div>
-        <h3>Global EV Signals — Implications for Emerging Markets</h3>
-        <p>Three structural signals shaping the next decade — and where asymmetric opportunity is forming.</p>
-        <div class="card-tags" aria-label="Tags">
-          <span class="tag">Futures</span>
-          <span class="tag">Systems</span>
-        </div>
-      </a>
+      <!-- List -->
+      <section class="latest-grid" id="essaysList" aria-label="Essays list">
 
-      <a class="blog-card" href="essays/most-read-framework.html" data-lens="decision">
-        <div class="card-top">
-          <span class="badge badge-framework">Anchor</span>
-          <span class="card-meta">Evergreen • 10 min</span>
-        </div>
-        <h3>Integration Risk Framework</h3>
-        <p>A model for mapping coordination debt, bottlenecks, and execution failure modes.</p>
-        <div class="card-tags" aria-label="Tags">
-          <span class="tag">Decision</span>
-          <span class="tag">Framework</span>
-        </div>
-      </a>
+        <!-- Published -->
+        <a class="blog-card" href="essays/ev-signals-emerging-markets.html" data-lens="futures">
+          <div class="card-top">
+            <span class="badge badge-essay">Essay</span>
+            <span class="card-meta">Feb 2026 • 9 min</span>
+          </div>
+          <h3>Global EV Signals — Implications for Emerging Markets</h3>
+          <p>Three structural signals shaping the next decade — and where asymmetric opportunity is forming.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Futures</span>
+            <span class="tag">Systems</span>
+          </div>
+        </a>
 
-      <!-- Coming soon (non-clickable) -->
-      <div class="blog-card" data-lens="valence" aria-disabled="true">
-        <div class="card-top">
-          <span class="badge badge-essay">Essay</span>
-          <span class="card-meta">Coming soon</span>
+        <a class="blog-card" href="essays/most-read-framework.html" data-lens="decision">
+          <div class="card-top">
+            <span class="badge badge-framework">Anchor</span>
+            <span class="card-meta">Evergreen • 10 min</span>
+          </div>
+          <h3>Integration Risk Framework</h3>
+          <p>A model for mapping coordination debt, bottlenecks, and execution failure modes.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Decision</span>
+            <span class="tag">Framework</span>
+          </div>
+        </a>
+
+        <!-- Coming soon (non-clickable) -->
+        <div class="blog-card" data-lens="valence" aria-disabled="true">
+          <div class="card-top">
+            <span class="badge badge-essay">Essay</span>
+            <span class="card-meta">Coming soon</span>
+          </div>
+          <h3>Carbon as Infrastructure</h3>
+          <p>Why MRV logic becomes a governance layer, not an accounting exercise.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Valence</span>
+            <span class="tag">MRV</span>
+          </div>
         </div>
-        <h3>Carbon as Infrastructure</h3>
-        <p>Why MRV logic becomes a governance layer, not an accounting exercise.</p>
-        <div class="card-tags" aria-label="Tags">
-          <span class="tag">Valence</span>
-          <span class="tag">MRV</span>
-        </div>
+
+      </section>
+
+      <div class="latest-footer latest-footer-left">
+        <a class="text-link" href="insights.html">Back to Insights →</a>
       </div>
 
     </section>
@@ -115,14 +126,13 @@
 
       document.querySelectorAll(".filter-pill").forEach(p => {
         const f = (p.getAttribute("data-filter") || "").toLowerCase();
-        if (f === lens) p.classList.add("active");
-        else p.classList.remove("active");
+        p.classList.toggle("active", f === lens);
       });
 
       document.querySelectorAll("#essaysList .blog-card").forEach(card => {
         const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
         const show = (lens === "all") || (cardLens === lens);
-        card.style.display = show ? "block" : "none";
+        card.style.display = show ? "" : "none";  // keep CSS grid intact
       });
     })();
   </script>
