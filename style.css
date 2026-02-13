@@ -920,3 +920,60 @@ a:focus-visible, button:focus-visible{
 @media (max-width: 620px){
   .essay-thesis-row{ grid-template-columns: 1fr; }
 }
+/* ============================================================
+   ROI PATCH — page consistency + missing classes
+   (Paste at END of style.css)
+============================================================ */
+
+/* Blog pages were using blog-container/blog-list without styles */
+.blog-container{
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 10px;
+}
+
+/* blog-list becomes a neutral wrapper (grid is handled by .latest-grid) */
+.blog-list{
+  width: 100%;
+}
+
+/* Make blog hero automatically inherit the main hero system */
+.blog-hero{
+  padding: 76px 16px 52px; /* slightly tighter than homepage hero */
+}
+.blog-hero-content h1{
+  font-size: clamp(34px, 4.4vw, 54px);
+}
+
+/* Keep compatibility with older class names (no harm) */
+.blog-hero-glow{ /* points to .hero-glow in HTML now; keep for legacy */
+}
+.blog-particles{ /* points to .particles in HTML now; keep for legacy */
+}
+
+/* Improve card tap targets + ensure consistent layout in lists */
+.blog-card h3{ line-height: 1.18; }
+
+/* Disabled/coming soon cards: truly non-interactive */
+.blog-card[aria-disabled="true"]{
+  opacity: 0.72;
+  cursor: default;
+  pointer-events: none;
+  filter: saturate(0.92);
+}
+
+/* If you want “coming soon” visible but still not clickable,
+   wrap the card in a div instead. For now this is safest. */
+
+/* Tighten card motion for users who prefer reduced motion (already global) */
+
+/* Lens tint helpers (optional) for future use on cards */
+.blog-card[data-lens="innovation"]{ border-top: 3px solid rgba(0,234,255,0.55); }
+.blog-card[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.55); }
+.blog-card[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.55); }
+.blog-card[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.52); }
+
+/* Make article container breathe slightly on small screens */
+@media (max-width: 620px){
+  .article-container{ padding-top: 26px; }
+}
