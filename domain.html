@@ -1,3 +1,7 @@
+<!-- =========================
+     domain.html  (FULL FILE)
+     Save as: /domain.html
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="domain-page">
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -24,6 +28,7 @@
 
   <div class="background" aria-hidden="true"></div>
 
+  <!-- HERO -->
   <header class="hero blog-hero" role="banner">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="particles" aria-hidden="true"></div>
@@ -38,38 +43,43 @@
 
   <main id="main">
 
+    <!-- SIGNALS -->
     <section class="home-section section-tint section-tint-a" aria-labelledby="signals-title">
       <div class="section-head">
         <h2 id="signals-title">Signals</h2>
         <a class="text-link" id="signalsBrowse" href="signals.html">Browse all →</a>
       </div>
-      <div class="latest-grid" id="signalsGrid"></div>
+      <div class="latest-grid" id="signalsGrid" aria-label="Signals grid"></div>
     </section>
 
+    <!-- ESSAYS -->
     <section class="home-section section-tint section-tint-b" aria-labelledby="essays-title">
       <div class="section-head">
         <h2 id="essays-title">Essays</h2>
         <a class="text-link" id="essaysBrowse" href="essays.html">Browse all →</a>
       </div>
-      <div class="latest-grid" id="essaysGrid"></div>
+      <div class="latest-grid" id="essaysGrid" aria-label="Essays grid"></div>
     </section>
 
+    <!-- LABS -->
     <section class="home-section section-tint section-tint-c" aria-labelledby="labs-title">
       <div class="section-head">
         <h2 id="labs-title">Labs</h2>
         <a class="text-link" href="labs.html">Open Labs →</a>
       </div>
-      <div class="latest-grid" id="labsGrid"></div>
+      <div class="latest-grid" id="labsGrid" aria-label="Labs grid"></div>
     </section>
 
+    <!-- ACADEMY -->
     <section class="home-section section-tint section-tint-b" aria-labelledby="academy-title">
       <div class="section-head">
         <h2 id="academy-title">Academy</h2>
         <a class="text-link" href="academy.html">Academy →</a>
       </div>
 
-      <div class="latest-grid" id="academyGrid"></div>
+      <div class="latest-grid" id="academyGrid" aria-label="Academy grid"></div>
 
+      <!-- Fallback panel when no courses exist -->
       <div id="academyFallback" class="academy-panel" style="margin-top:16px; display:none;">
         <div class="academy-content">
           <h3>Davoren Insights Academy</h3>
@@ -95,8 +105,10 @@
     </p>
   </footer>
 
+  <!-- CONTENT REGISTRY -->
   <script src="content-index.js"></script>
 
+  <!-- DOMAIN RENDER -->
   <script>
     (function () {
       const params = new URLSearchParams(window.location.search);
@@ -122,37 +134,58 @@
           title: "Decision",
           sub: "Coordination failure. Decision friction. Adoption reality.",
           kicker: "Execution Systems • Coordination Debt • Institutions"
+        },
+        human: {
+          title: "Human",
+          sub: "Teams, incentives, and coordination design under real constraints.",
+          kicker: "Human Systems • Teams • Coordination Fit"
         }
       };
 
       const meta = LENS_META[lens] || LENS_META.innovation;
 
+      // Title + hero copy
       document.title = `${meta.title} — Davoren Insights`;
       document.getElementById("domainTitle").textContent = meta.title;
       document.getElementById("domainSub").textContent = meta.sub;
       document.getElementById("domainKicker").textContent = meta.kicker;
 
-      document.getElementById("signalsBrowse").href = `signals.html?lens=${lens}`;
-      document.getElementById("essaysBrowse").href = `essays.html?lens=${lens}`;
+      // “Browse all” links filtered
+      document.getElementById("signalsBrowse").href = `signals.html?lens=${encodeURIComponent(lens)}`;
+      document.getElementById("essaysBrowse").href = `essays.html?lens=${encodeURIComponent(lens)}`;
 
-      const signals = (window.CONTENT.signals || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
-      const essays  = (window.CONTENT.essays  || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
-      const labs    = (window.CONTENT.labs    || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
-      const academy = (window.CONTENT.academy || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
+      // Pull content
+      const signals = ((window.CONTENT && window.CONTENT.signals) || [])
+        .filter(x => ((x.lens || "").toLowerCase() === lens))
+        .slice(0, 3);
 
+      const essays = ((window.CONTENT && window.CONTENT.essays) || [])
+        .filter(x => ((x.lens || "").toLowerCase() === lens))
+        .slice(0, 3);
+
+      const labs = ((window.CONTENT && window.CONTENT.labs) || [])
+        .filter(x => ((x.lens || "").toLowerCase() === lens))
+        .slice(0, 3);
+
+      const academy = ((window.CONTENT && window.CONTENT.academy) || [])
+        .filter(x => ((x.lens || "").toLowerCase() === lens))
+        .slice(0, 3);
+
+      // Render
       renderCards("signalsGrid", signals, "signal");
       renderCards("essaysGrid", essays, "essay");
       renderLabCards("labsGrid", labs);
       renderCards("academyGrid", academy, "academy");
 
+      // Academy fallback panel
       const fallback = document.getElementById("academyFallback");
       if (!academy.length) fallback.style.display = "flex";
 
-      function renderCards(containerId, items, type){
+      function renderCards(containerId, items, type) {
         const el = document.getElementById(containerId);
         el.innerHTML = "";
 
-        if (!items.length){
+        if (!items.length) {
           el.innerHTML = emptyCard(type);
           return;
         }
@@ -162,26 +195,33 @@
           a.className = "blog-card";
           a.href = item.href;
 
+          // lens line (subtle top border via CSS if you keep your lens helpers)
+          a.setAttribute("data-lens", (item.lens || lens));
+
+          const tags = Array.isArray(item.tags) ? item.tags : [];
+          const badge = item.badge || (type === "signal" ? "Signal" : type === "essay" ? "Essay" : "Item");
+
           a.innerHTML = `
             <div class="card-top">
-              <span class="badge ${badgeClass(type)}">${item.badge}</span>
-              <span class="card-meta">${item.meta || ""}</span>
+              <span class="badge ${badgeClass(type)}">${escapeHtml(badge)}</span>
+              <span class="card-meta">${escapeHtml(item.meta || "")}</span>
             </div>
-            <h3>${item.title}</h3>
-            ${item.desc ? `<p>${item.desc}</p>` : ``}
+            <h3>${escapeHtml(item.title || "Untitled")}</h3>
+            ${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ``}
             <div class="card-tags" aria-label="Tags">
-              ${(item.tags||[]).slice(0,2).map(t => `<span class="tag">${t}</span>`).join("")}
+              ${tags.slice(0, 2).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
             </div>
           `;
+
           el.appendChild(a);
         });
       }
 
-      function renderLabCards(containerId, items){
+      function renderLabCards(containerId, items) {
         const el = document.getElementById(containerId);
         el.innerHTML = "";
 
-        if (!items.length){
+        if (!items.length) {
           el.innerHTML = emptyCard("labs");
           return;
         }
@@ -192,29 +232,34 @@
           a.href = item.href;
           a.target = "_blank";
           a.rel = "noopener noreferrer";
+          a.setAttribute("data-lens", (item.lens || lens));
+
+          const tags = Array.isArray(item.tags) ? item.tags : [];
 
           a.innerHTML = `
             <div class="card-top">
               <span class="badge badge-framework">Lab</span>
-              <span class="card-meta">${item.status || "Live"}</span>
+              <span class="card-meta">${escapeHtml(item.status || "Live")}</span>
             </div>
-            <h3>${item.title}</h3>
-            ${item.desc ? `<p>${item.desc}</p>` : ``}
+            <h3>${escapeHtml(item.title || "Untitled Lab")}</h3>
+            ${item.desc ? `<p>${escapeHtml(item.desc)}</p>` : ``}
             <div class="card-tags" aria-label="Tags">
-              ${(item.tags||[]).slice(0,2).map(t => `<span class="tag">${t}</span>`).join("")}
+              ${tags.slice(0, 2).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
             </div>
           `;
+
           el.appendChild(a);
         });
       }
 
-      function badgeClass(type){
+      function badgeClass(type) {
         if (type === "signal") return "badge-signal";
         if (type === "essay") return "badge-essay";
+        if (type === "academy") return "badge-framework";
         return "badge-framework";
       }
 
-      function emptyCard(type){
+      function emptyCard(type) {
         const label = (type === "labs") ? "No labs listed yet" : "Coming soon";
         return `
           <div class="blog-card" aria-disabled="true">
@@ -230,6 +275,17 @@
           </div>
         `;
       }
+
+      // Minimal safety (prevents accidental HTML injection from content-index.js)
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
     })();
   </script>
 
