@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Domain — Davoren Insights</title>
+  <meta name="description" content="Domain view: Signals, Essays, Labs, and Academy organized by lens." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="navbar" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="insights.html">Insights</a>
+    <a href="academy.html">Academy</a>
+    <a href="labs.html">Labs</a>
+  </nav>
+
+  <div class="background" aria-hidden="true"></div>
+
+  <header class="hero blog-hero" role="banner">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="particles" aria-hidden="true"></div>
+    <div class="hero-bottom-glow" aria-hidden="true"></div>
+
+    <div class="hero-content blog-hero-content">
+      <h1 id="domainTitle">Domain</h1>
+      <p class="hero-sub" id="domainSub">Signals, essays, labs, and academy — organized by lens.</p>
+      <p class="format-promise muted" id="domainKicker"></p>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="home-section section-tint section-tint-a" aria-labelledby="signals-title">
+      <div class="section-head">
+        <h2 id="signals-title">Signals</h2>
+        <a class="text-link" id="signalsBrowse" href="signals.html">Browse all →</a>
+      </div>
+      <div class="latest-grid" id="signalsGrid"></div>
+    </section>
+
+    <section class="home-section section-tint section-tint-b" aria-labelledby="essays-title">
+      <div class="section-head">
+        <h2 id="essays-title">Essays</h2>
+        <a class="text-link" id="essaysBrowse" href="essays.html">Browse all →</a>
+      </div>
+      <div class="latest-grid" id="essaysGrid"></div>
+    </section>
+
+    <section class="home-section section-tint section-tint-c" aria-labelledby="labs-title">
+      <div class="section-head">
+        <h2 id="labs-title">Labs</h2>
+        <a class="text-link" href="labs.html">Open Labs →</a>
+      </div>
+      <div class="latest-grid" id="labsGrid"></div>
+    </section>
+
+    <section class="home-section section-tint section-tint-b" aria-labelledby="academy-title">
+      <div class="section-head">
+        <h2 id="academy-title">Academy</h2>
+        <a class="text-link" href="academy.html">Academy →</a>
+      </div>
+
+      <div class="latest-grid" id="academyGrid"></div>
+
+      <div id="academyFallback" class="academy-panel" style="margin-top:16px; display:none;">
+        <div class="academy-content">
+          <h3>Davoren Insights Academy</h3>
+          <p class="muted">Programs will be introduced selectively. This domain track is in development.</p>
+          <p class="academy-note">When ready, courses will appear here.</p>
+        </div>
+        <div class="academy-actions">
+          <span class="academy-status">In development</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Davoren Insights</p>
+    <p class="muted">davoreninsights@gmail.com</p>
+    <p class="footer-links">
+      <a href="index.html">Home</a> •
+      <a href="insights.html">Insights</a> •
+      <a href="labs.html">Labs</a> •
+      <a href="academy.html">Academy</a>
+    </p>
+  </footer>
+
+  <script src="content-index.js"></script>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const lens = (params.get("lens") || "innovation").toLowerCase();
+
+      const LENS_META = {
+        innovation: {
+          title: "Innovation",
+          sub: "Constraint-driven redesign. Adoption reality. Industrial shifts.",
+          kicker: "Innovation Architectures • Systems Design • Commercialisation"
+        },
+        valence: {
+          title: "Valence",
+          sub: "Carbon as infrastructure. MRV logic. Incentives + integrity.",
+          kicker: "Carbon Systems • MRV • Integrity & Incentives"
+        },
+        futures: {
+          title: "Futures",
+          sub: "Signals. Second-order effects. Opportunity windows.",
+          kicker: "Directional Intelligence • Risk Horizons • Timing"
+        },
+        decision: {
+          title: "Decision",
+          sub: "Coordination failure. Decision friction. Adoption reality.",
+          kicker: "Execution Systems • Coordination Debt • Institutions"
+        }
+      };
+
+      const meta = LENS_META[lens] || LENS_META.innovation;
+
+      document.title = `${meta.title} — Davoren Insights`;
+      document.getElementById("domainTitle").textContent = meta.title;
+      document.getElementById("domainSub").textContent = meta.sub;
+      document.getElementById("domainKicker").textContent = meta.kicker;
+
+      document.getElementById("signalsBrowse").href = `signals.html?lens=${lens}`;
+      document.getElementById("essaysBrowse").href = `essays.html?lens=${lens}`;
+
+      const signals = (window.CONTENT.signals || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
+      const essays  = (window.CONTENT.essays  || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
+      const labs    = (window.CONTENT.labs    || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
+      const academy = (window.CONTENT.academy || []).filter(x => (x.lens||"").toLowerCase() === lens).slice(0,3);
+
+      renderCards("signalsGrid", signals, "signal");
+      renderCards("essaysGrid", essays, "essay");
+      renderLabCards("labsGrid", labs);
+      renderCards("academyGrid", academy, "academy");
+
+      const fallback = document.getElementById("academyFallback");
+      if (!academy.length) fallback.style.display = "flex";
+
+      function renderCards(containerId, items, type){
+        const el = document.getElementById(containerId);
+        el.innerHTML = "";
+
+        if (!items.length){
+          el.innerHTML = emptyCard(type);
+          return;
+        }
+
+        items.forEach(item => {
+          const a = document.createElement("a");
+          a.className = "blog-card";
+          a.href = item.href;
+
+          a.innerHTML = `
+            <div class="card-top">
+              <span class="badge ${badgeClass(type)}">${item.badge}</span>
+              <span class="card-meta">${item.meta || ""}</span>
+            </div>
+            <h3>${item.title}</h3>
+            ${item.desc ? `<p>${item.desc}</p>` : ``}
+            <div class="card-tags" aria-label="Tags">
+              ${(item.tags||[]).slice(0,2).map(t => `<span class="tag">${t}</span>`).join("")}
+            </div>
+          `;
+          el.appendChild(a);
+        });
+      }
+
+      function renderLabCards(containerId, items){
+        const el = document.getElementById(containerId);
+        el.innerHTML = "";
+
+        if (!items.length){
+          el.innerHTML = emptyCard("labs");
+          return;
+        }
+
+        items.forEach(item => {
+          const a = document.createElement("a");
+          a.className = "blog-card";
+          a.href = item.href;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+
+          a.innerHTML = `
+            <div class="card-top">
+              <span class="badge badge-framework">Lab</span>
+              <span class="card-meta">${item.status || "Live"}</span>
+            </div>
+            <h3>${item.title}</h3>
+            ${item.desc ? `<p>${item.desc}</p>` : ``}
+            <div class="card-tags" aria-label="Tags">
+              ${(item.tags||[]).slice(0,2).map(t => `<span class="tag">${t}</span>`).join("")}
+            </div>
+          `;
+          el.appendChild(a);
+        });
+      }
+
+      function badgeClass(type){
+        if (type === "signal") return "badge-signal";
+        if (type === "essay") return "badge-essay";
+        return "badge-framework";
+      }
+
+      function emptyCard(type){
+        const label = (type === "labs") ? "No labs listed yet" : "Coming soon";
+        return `
+          <div class="blog-card" aria-disabled="true">
+            <div class="card-top">
+              <span class="badge badge-framework">${label}</span>
+              <span class="card-meta">—</span>
+            </div>
+            <h3>Nothing to show yet</h3>
+            <p class="muted">This domain will fill out as you publish.</p>
+            <div class="card-tags" aria-label="Tags">
+              <span class="tag">In development</span>
+            </div>
+          </div>
+        `;
+      }
+    })();
+  </script>
+
+</body>
+</html>
