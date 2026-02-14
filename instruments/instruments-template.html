@@ -1,7 +1,7 @@
 <!-- =========================
      instruments/instrument-template.html
-     Davoren Insights — Instrument Template (LEAN v1.0)
-     Purpose: publish instruments as architectures without placeholder content.
+     Davoren Insights — Instrument Template (LEAN v1.1)
+     Purpose: publish instruments as architectures (no panels, no callouts, no placeholder blocks).
 ========================= -->
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Instrument Name — Strategic Instrument | Davoren Insights</title>
-  <meta name="description" content="Instrument Name: a structured decision environment that surfaces readiness, constraints, and execution exposure." />
+  <meta name="description" content="Instrument Name: a decision environment that surfaces readiness, constraints, and execution exposure before commitments harden." />
   <meta name="robots" content="index,follow" />
 
   <link rel="stylesheet" href="../style.css" />
@@ -39,7 +39,7 @@
       <h1>Instrument Name</h1>
 
       <p class="hero-sub">
-        One sentence: what this instrument makes legible before commitments harden.
+        One sentence: what this instrument makes legible before capital, procurement, or partnership commitments harden.
       </p>
 
       <p class="format-promise muted">
@@ -48,7 +48,7 @@
 
       <div class="hero-cta">
         <a class="btn" href="#clarifies">What it clarifies</a>
-        <a class="btn btn-ghost" href="#structure">Structure</a>
+        <a class="btn btn-ghost" href="#structure">Structural condition</a>
       </div>
     </div>
   </header>
@@ -63,12 +63,13 @@
       </div>
 
       <ul class="article-list" aria-label="Decision questions">
-        <li><strong>Readiness:</strong> What must be true for this initiative to be investable and executable — now?</li>
-        <li><strong>Constraints:</strong> Which bottlenecks are structural, and which are addressable with sequencing?</li>
-        <li><strong>Execution exposure:</strong> Where does failure appear first — coordination, evidence, or capacity?</li>
+        <li><strong>Readiness:</strong> What must be evidenced for this initiative to be commit-ready — now?</li>
+        <li><strong>Constraints:</strong> Which bottlenecks are structural, and which are addressable through sequencing?</li>
+        <li><strong>Execution exposure:</strong> Where does failure appear first — evidence, coordination, or capacity?</li>
+        <li><strong>Decision posture:</strong> Should the correct move be commit, pause, re-sequence, or re-scope?</li>
       </ul>
 
-      <!-- Optional later: replace list with 3 cards once you have real, specific questions per instrument -->
+      <!-- Optional later: swap the list for 3–4 cards once you have instrument-specific questions -->
       <!--
       <div class="latest-grid">
         <div class="blog-card">...</div>
@@ -76,64 +77,74 @@
       -->
     </section>
 
-    <!-- WHY / STRUCTURAL CONDITION -->
+    <!-- STRUCTURAL CONDITION -->
     <section class="home-section section-tint section-tint-b" id="structure" aria-labelledby="structure-title">
       <div class="section-head">
         <h2 id="structure-title">Structural condition</h2>
         <p class="section-sub muted">What changed, and why this instrument exists.</p>
       </div>
 
-      <div class="academy-panel">
-        <div class="academy-content">
-          <h3>Constraint moved upstream</h3>
-          <p class="muted">
-            3–5 sentences. State the structural shift. Name the constraint or incentive.
-            Describe what becomes ambiguous without an instrument like this.
-          </p>
-          <p class="academy-note">
-            One line: what late-stage failure mode this instrument is designed to prevent.
-          </p>
-        </div>
-        <div class="academy-actions">
-          <span class="academy-status">Architecture note</span>
-        </div>
-      </div>
+      <p>
+        2–4 sentences. State the structural shift. Name the constraint or incentive.
+        Describe what becomes ambiguous without an instrument like this.
+      </p>
+
+      <p>
+        1–2 sentences. State the late-stage failure mode this instrument is designed to prevent.
+        Keep it concrete (deal collapse, procurement stall, partner withdrawal, audit failure).
+      </p>
     </section>
 
-    <!-- INPUTS / OUTPUTS (only if you have real content) -->
-    <section class="home-section section-tint section-tint-a" aria-labelledby="io-title">
+    <!-- INPUTS / OUTPUTS -->
+    <section class="home-section section-tint section-tint-a" id="io" aria-labelledby="io-title">
       <div class="section-head">
         <h2 id="io-title">Inputs and outputs</h2>
         <p class="section-sub muted">Interface-level description only.</p>
       </div>
 
-      <div class="latest-grid" aria-label="Inputs and outputs">
-        <div class="blog-card">
-          <div class="card-top">
-            <span class="badge badge-framework">Inputs</span>
-            <span class="card-meta">What it needs</span>
-          </div>
-          <h3>Evidence and context</h3>
-          <p>Stage, pathway assumptions, constraint landscape, partners, evidence quality.</p>
-          <div class="card-tags" aria-label="Tags">
-            <span class="tag">Evidence</span>
-            <span class="tag">Context</span>
-          </div>
-        </div>
+      <h3>Inputs</h3>
+      <p>
+        Input categories only (no internal mechanism): evidence types, context assumptions, constraint context,
+        stakeholder landscape, governance requirements, time horizon.
+      </p>
 
-        <div class="blog-card">
-          <div class="card-top">
-            <span class="badge badge-framework">Outputs</span>
-            <span class="card-meta">What it produces</span>
-          </div>
-          <h3>Decision artifacts</h3>
-          <p>Readiness summary, exposure map, sequencing notes, decision friction markers.</p>
-          <div class="card-tags" aria-label="Tags">
-            <span class="tag">Summary</span>
-            <span class="tag">Exposure</span>
-          </div>
-        </div>
+      <h3>Outputs</h3>
+      <p>
+        Output artifact types only: summaries, registers, exposure maps, sequencing notes, decision memos.
+        Describe how to interpret them (exposure markers, not certifications).
+      </p>
+    </section>
+
+    <!-- INTERPRETATION RULES -->
+    <section class="home-section section-tint section-tint-b" id="interpretation" aria-labelledby="interpretation-title">
+      <div class="section-head">
+        <h2 id="interpretation-title">Interpretation rules</h2>
+        <p class="section-sub muted">How outputs should be read without over-claiming validity.</p>
       </div>
+
+      <p>
+        2–4 sentences. Clarify what “high readiness” means in this instrument (artifact density, coherence, explicit sequencing),
+        and what it does not mean (certainty of success).
+      </p>
+
+      <p>
+        1–2 sentences. State the decision shift the instrument enforces (from preference to structure, from acceleration to composition).
+      </p>
+    </section>
+
+    <!-- VALIDITY CONDITIONS -->
+    <section class="home-section section-tint section-tint-a" id="validity" aria-labelledby="validity-title">
+      <div class="section-head">
+        <h2 id="validity-title">Validity conditions</h2>
+        <p class="section-sub muted">When this instrument is valid — and when it is not.</p>
+      </div>
+
+      <ul class="article-list" aria-label="Validity conditions">
+        <li><strong>Valid when:</strong> a decision window is approaching and artifact coherence is required.</li>
+        <li><strong>Invalid when:</strong> used as a certification, marketing signal, or substitute for due diligence.</li>
+        <li><strong>Depends on:</strong> input recency, evidence integrity, and declared constraints (suppressed risks invalidate outputs).</li>
+        <li><strong>Primary failure mode prevented:</strong> commitments made on narrative, collapsing under scrutiny.</li>
+      </ul>
     </section>
 
     <!-- OPTIONAL: RELATED SIGNALS (only add when you have 2+ real links) -->
@@ -144,13 +155,13 @@
         <p class="section-sub muted">Where the same constraint is visible in the field.</p>
       </div>
       <div class="latest-grid">
-        <a class="blog-card" href="../signals/constraint-promotes-innovation.html" data-lens="innovation">
+        <a class="blog-card" href="../signals/signal-file.html">
           <div class="card-top">
-            <span class="badge badge-signal">Signal 001</span>
+            <span class="badge badge-signal">Signal</span>
             <span class="card-meta">3 min</span>
           </div>
-          <h3>Constraint Promotes Innovation</h3>
-          <p>Constraint is directional intelligence. Treat it as design input.</p>
+          <h3>Signal title</h3>
+          <p>One sentence: how the constraint shows up in the field.</p>
         </a>
       </div>
     </section>
