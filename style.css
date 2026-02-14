@@ -1,5 +1,5 @@
 /* ============================================================
-   Davoren Insights — Lean Launch CSS (patched)
+   Davoren Insights — Lean Launch CSS (complete, fixed)
    Scope: Home + Signals + Signal Articles + Instruments + Engage
 ============================================================ */
 
@@ -348,6 +348,16 @@ a.blog-card:hover{
   background: rgba(20,28,48,0.60);
 }
 
+/* Router cards (Home navigation cards) */
+.router-card{
+  background: rgba(15,20,35,0.46);
+  border-style: dashed;
+  border-color: rgba(255,255,255,0.10);
+}
+a.router-card:hover{
+  border-style: solid;
+}
+
 .card-top{
   display:flex;
   align-items:center;
@@ -403,7 +413,7 @@ a.blog-card:hover{
 }
 .badge-signal{ border-color: rgba(0,234,255,0.30); }
 .badge-framework{ border-color: rgba(141,107,255,0.30); }
-.badge-essay{ border-color: rgba(255,75,241,0.30); } /* PATCH: used on Home */
+.badge-essay{ border-color: rgba(255,75,241,0.30); }
 
 /* Disabled (kept for safety) */
 .blog-card[aria-disabled="true"]{
@@ -419,7 +429,7 @@ a.blog-card:hover{
 .blog-card[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.55); }
 .blog-card[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.52); }
 
-/* ============ HOME TILES (PATCH: used by index.html Scope) ============ */
+/* ============ HOME TILES ============ */
 .tiles{
   display:grid;
   gap: var(--gutter);
@@ -569,11 +579,12 @@ a.blog-card:hover{
 /* ============ RESPONSIVE ============ */
 @media (max-width: 980px){
   .latest-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tiles-3{ grid-template-columns: 1fr; }
+  .tiles-3{ grid-template-columns: repeat(2, minmax(0, 1fr)); } /* improved: 3→2 */
   .follow-inner{ flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 620px){
   .latest-grid{ grid-template-columns: 1fr; }
+  .tiles-3{ grid-template-columns: 1fr; } /* improved: 2→1 */
   .hero, .blog-hero{ padding: 76px 16px 56px; }
 }
 
