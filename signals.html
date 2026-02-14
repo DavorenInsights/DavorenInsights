@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Signals — Davoren Insights</title>
+  <meta name="description" content="Signals: short analytical briefs — what changed, why it matters, early indicators." />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAV (Lean) -->
+  <nav class="navbar" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="signals.html" aria-current="page">Signals</a>
+    <a href="instruments.html">Strategic Instruments</a>
+    <a href="index.html#engage">Engage</a>
+  </nav>
+
+  <div class="background" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <header class="hero blog-hero" role="banner">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="particles" aria-hidden="true"></div>
+    <div class="hero-bottom-glow" aria-hidden="true"></div>
+
+    <div class="hero-content blog-hero-content">
+      <h1>Signals</h1>
+      <p class="hero-sub">Short analytical briefs — what changed, why it matters, early indicators.</p>
+      <p class="format-promise muted">3–5 minutes. High signal. Low noise.</p>
+
+      <div class="hero-cta">
+        <a class="btn" href="#signals-title">Browse</a>
+        <a class="btn btn-ghost" href="instruments.html">Strategic Instruments</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="home-section section-tint section-tint-a" aria-labelledby="signals-title">
+      <div class="section-head">
+        <h2 id="signals-title">Browse signals</h2>
+        <p class="section-sub muted">Grouped by lens when volume supports it.</p>
+      </div>
+
+      <!-- FILTER (keep, but it’s optional until you have ~10 signals) -->
+      <nav class="filter-bar" aria-label="Filter signals by lens">
+        <a class="filter-pill" href="signals.html" data-filter="all">All</a>
+        <a class="filter-pill" href="signals.html?lens=innovation" data-filter="innovation">Innovation</a>
+        <a class="filter-pill" href="signals.html?lens=valence" data-filter="valence">Valence</a>
+        <a class="filter-pill" href="signals.html?lens=futures" data-filter="futures">Futures</a>
+        <a class="filter-pill" href="signals.html?lens=decision" data-filter="decision">Decision</a>
+      </nav>
+
+      <!-- LIST -->
+      <section class="latest-grid" id="signalsList" aria-label="Signals list">
+
+        <a class="blog-card" href="signals/constraint-promotes-innovation.html" data-lens="innovation">
+          <div class="card-top">
+            <span class="badge badge-signal">Signal 001</span>
+            <span class="card-meta">Feb 2026 • 3 min</span>
+          </div>
+          <h3>Constraint Promotes Innovation</h3>
+          <p>Limits force redesign; redesign creates advantage.</p>
+
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Innovation</span>
+            <span class="tag">Systems</span>
+          </div>
+
+          <!-- OPTIONAL: if you add a briefing later, add a small line like this -->
+          <!-- <div class="card-tags" aria-label="Formats"><span class="tag">Briefing available</span></div> -->
+        </a>
+
+      </section>
+
+      <div class="latest-footer latest-footer-left" aria-label="Next steps">
+        <a class="text-link" href="instruments.html">Explore Strategic Instruments →</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Davoren Insights</p>
+    <p class="muted">davoreninsights@gmail.com</p>
+
+    <p class="footer-links">
+      <a href="signals.html">Signals</a> •
+      <a href="instruments.html">Strategic Instruments</a> •
+      <a href="https://www.linkedin.com/in/YOUR-HANDLE-HERE" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const lens = (params.get("lens") || "all").toLowerCase();
+
+      document.querySelectorAll(".filter-pill").forEach(p => {
+        const f = (p.getAttribute("data-filter") || "").toLowerCase();
+        p.classList.toggle("active", f === lens);
+      });
+
+      document.querySelectorAll("#signalsList .blog-card").forEach(card => {
+        const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
+        const show = (lens === "all") || (cardLens === lens);
+        card.style.display = show ? "" : "none";
+      });
+    })();
+  </script>
+
+</body>
+</html>
