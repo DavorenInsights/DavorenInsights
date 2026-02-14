@@ -48,20 +48,11 @@
     <section class="home-section section-tint section-tint-a" aria-labelledby="signals-title">
       <div class="section-head">
         <h2 id="signals-title">Browse signals</h2>
-        <p class="section-sub muted">Grouped by lens when volume supports it.</p>
+        <p class="section-sub muted">Published signals. Grouping appears when volume supports it.</p>
       </div>
 
-      <!-- FILTER (keep, but it’s optional until you have ~10 signals) -->
-      <nav class="filter-bar" aria-label="Filter signals by lens">
-        <a class="filter-pill" href="signals.html" data-filter="all">All</a>
-        <a class="filter-pill" href="signals.html?lens=innovation" data-filter="innovation">Innovation</a>
-        <a class="filter-pill" href="signals.html?lens=valence" data-filter="valence">Valence</a>
-        <a class="filter-pill" href="signals.html?lens=futures" data-filter="futures">Futures</a>
-        <a class="filter-pill" href="signals.html?lens=decision" data-filter="decision">Decision</a>
-      </nav>
-
       <!-- LIST -->
-      <section class="latest-grid" id="signalsList" aria-label="Signals list">
+      <section class="latest-grid" aria-label="Signals list">
 
         <a class="blog-card" href="signals/constraint-promotes-innovation.html" data-lens="innovation">
           <div class="card-top">
@@ -69,15 +60,12 @@
             <span class="card-meta">Feb 2026 • 3 min</span>
           </div>
           <h3>Constraint Promotes Innovation</h3>
-          <p>Limits force redesign; redesign creates advantage.</p>
+          <p>Constraint is not a speed bump. It is a design spec.</p>
 
           <div class="card-tags" aria-label="Tags">
             <span class="tag">Innovation</span>
             <span class="tag">Systems</span>
           </div>
-
-          <!-- OPTIONAL: if you add a briefing later, add a small line like this -->
-          <!-- <div class="card-tags" aria-label="Formats"><span class="tag">Briefing available</span></div> -->
         </a>
 
       </section>
@@ -100,24 +88,6 @@
       <a href="https://www.linkedin.com/in/YOUR-HANDLE-HERE" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </p>
   </footer>
-
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const lens = (params.get("lens") || "all").toLowerCase();
-
-      document.querySelectorAll(".filter-pill").forEach(p => {
-        const f = (p.getAttribute("data-filter") || "").toLowerCase();
-        p.classList.toggle("active", f === lens);
-      });
-
-      document.querySelectorAll("#signalsList .blog-card").forEach(card => {
-        const cardLens = (card.getAttribute("data-lens") || "").toLowerCase();
-        const show = (lens === "all") || (cardLens === lens);
-        card.style.display = show ? "" : "none";
-      });
-    })();
-  </script>
 
 </body>
 </html>
