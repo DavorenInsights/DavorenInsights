@@ -1,15 +1,11 @@
-<!-- =========================
-     signals/signal-template.html  (FULL FILE)
-     Signal template v2.0 (Observation → Mechanism → Structural Implication)
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Signal 001 — Signal Title | Davoren Insights</title>
-  <meta name="description" content="Signal 001 — Signal Title. A 3–5 minute dispatch from Davoren Insights." />
+  <title>Signal 00X — Signal Title | Davoren Insights</title>
+  <meta name="description" content="Signal 00X — Signal Title. A short dispatch from Davoren Insights." />
   <meta name="robots" content="index,follow" />
 
   <link rel="stylesheet" href="../style.css" />
@@ -19,11 +15,15 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- NAV (Lean, correct relative paths) -->
   <nav class="navbar" aria-label="Primary">
     <a href="../index.html">Home</a>
-    <a href="../about.html">About</a>
-    <a href="../insights.html">Insights</a>
+    <a href="../signals.html">Signals</a>
+    <a href="../instruments.html">Strategic Instruments</a>
+    <a href="../index.html#engage">Engage</a>
   </nav>
+
+  <div class="background" aria-hidden="true"></div>
 
   <main id="main" class="article-container">
 
@@ -31,8 +31,8 @@
     <header class="article-head">
 
       <div class="article-kicker">
-        <span class="article-type signal">Signal 001</span>
-        <span class="article-meta">Feb 2026 • 3–5 min</span>
+        <span class="article-type signal">Signal 00X</span>
+        <span class="article-meta">Month YYYY • 3–5 min • Lens: ____</span>
       </div>
 
       <h1 class="article-title">Signal Title</h1>
@@ -43,56 +43,74 @@
 
       <div class="article-tags" aria-label="Tags">
         <span class="tag">Innovation</span>
-        <span class="tag">Futures</span>
-        <span class="tag">Decision</span>
+        <span class="tag">Systems</span>
+        <span class="tag">Execution</span>
       </div>
 
     </header>
 
     <hr class="article-divider" />
 
-    <!-- Signal brief (mechanism-first) -->
+    <!-- Signal brief (scan-first) -->
     <section class="signal-brief" aria-label="Signal Brief">
       <div class="signal-brief-grid">
+
         <div class="signal-brief-item">
           <h3>Shift</h3>
           <p>One sentence: what changed in the system.</p>
         </div>
+
         <div class="signal-brief-item">
           <h3>Driver</h3>
-          <p>The constraint/incentive that is producing the shift.</p>
+          <p>The constraint / incentive / coordination change producing the shift.</p>
         </div>
+
         <div class="signal-brief-item">
-          <h3>Indicator</h3>
-          <p>One thing to watch that confirms (or falsifies) the signal.</p>
+          <h3>Watch for</h3>
+          <p>One indicator that confirms (or falsifies) the signal.</p>
         </div>
+
         <div class="signal-brief-item">
-          <h3>Exposure</h3>
+          <h3>So what</h3>
           <p>Who benefits, who breaks, what decision now looks different.</p>
         </div>
+
       </div>
     </section>
 
     <hr class="article-divider" />
+
+    <!-- Optional briefing slot (keep text-first; add only when you have a real video) -->
+    <!--
+    <section class="home-section section-tint section-tint-b" aria-labelledby="briefing-title">
+      <div class="section-head">
+        <h2 id="briefing-title">Video briefing</h2>
+        <p class="section-sub muted">If you prefer to listen, this briefing summarizes the signal.</p>
+      </div>
+      <div class="video-wrapper" aria-label="Video briefing">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID"
+          title="Video briefing: Signal 00X"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+    <hr class="article-divider" />
+    -->
 
     <!-- Body -->
     <article class="article-body">
 
       <section class="article-section" aria-labelledby="obs-title">
         <h2 id="obs-title">Observation</h2>
-        <p>
-          State what is happening. Concrete. Minimal interpretation.
-          If it’s an observation you made (not “new”), say so plainly:
-          “This is not new; what’s new is the intensity/placement/timing.”
-        </p>
+        <p>Concrete description of what is happening. Minimal interpretation.</p>
       </section>
 
       <section class="article-section" aria-labelledby="mech-title">
         <h2 id="mech-title">Mechanism</h2>
-        <p>
-          Name the causal structure: constraint, incentives, coordination, adoption friction.
-          Keep it mechanistic. No advocacy. No hype.
-        </p>
+        <p>Name the causal structure: constraint, incentives, coordination, adoption friction.</p>
         <ul class="article-list">
           <li>What constraint is tightening?</li>
           <li>What incentive moved?</li>
@@ -103,17 +121,13 @@
 
       <section class="article-section" aria-labelledby="imp-title">
         <h2 id="imp-title">Structural implication</h2>
-        <p>
-          What this changes across the system.
-          Not “tips.” Consequences: capital flow, adoption rates, execution risk, institutional load.
-        </p>
+        <p>System-level consequences: adoption rates, execution risk, institutional load, capital flow.</p>
       </section>
 
       <section class="article-section" aria-labelledby="note-title">
         <h2 id="note-title">Strategic note</h2>
         <blockquote class="strategic-note">
           One or two lines. Compression. No theatrics.
-          Example: Coordination debt compounds quietly before it appears in metrics.
         </blockquote>
       </section>
 
@@ -121,8 +135,7 @@
 
     <nav class="article-nav" aria-label="Article navigation">
       <a class="text-link" href="../signals.html">← Back to Signals</a>
-      <!-- Optional: wire when ready -->
-      <!-- <a class="text-link" href="signal-002.html">Next →</a> -->
+      <a class="text-link" href="../instruments.html">Strategic Instruments →</a>
     </nav>
 
   </main>
@@ -131,9 +144,9 @@
     <p>© 2026 Davoren Insights</p>
     <p class="muted">davoreninsights@gmail.com</p>
     <p class="footer-links">
-      <a href="../insights.html">Insights</a> •
       <a href="../signals.html">Signals</a> •
-      <a href="../essays.html">Strategic Essays</a>
+      <a href="../instruments.html">Strategic Instruments</a> •
+      <a href="https://www.linkedin.com/in/YOUR-HANDLE-HERE" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </p>
   </footer>
 
