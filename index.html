@@ -7,7 +7,7 @@
   <title>Davoren Insights</title>
 
   <meta name="description"
-        content="Davoren Insights publishes Signals and Strategic Instruments for decision-ready clarity across innovation systems, transition execution risk, and second-order effects." />
+        content="Davoren Insights publishes Signals and Strategic Instruments for decision-ready clarity across transition execution, constraints, and second-order effects." />
   <meta name="robots" content="index,follow" />
 
   <link rel="stylesheet" href="style.css"/>
@@ -40,8 +40,7 @@
       </p>
 
       <p class="format-promise muted">
-        A structured environment for reasoning about innovation systems, carbon and infrastructure,
-        coordination risk, and second-order effects — written to reduce ambiguity.
+        Structural interpretation for environments where execution risk is rarely technical — it is coordination, constraint, and institutional capacity.
       </p>
 
       <div class="hero-cta">
@@ -53,71 +52,78 @@
 
   <main id="main">
 
-    <!-- ROUTER (lean) -->
-    <section class="home-section section-tint section-tint-a" aria-labelledby="nav-title">
+    <!-- LATEST (lean, no "Start here" router) -->
+    <section class="home-section section-tint section-tint-a" aria-labelledby="latest-title">
       <div class="section-head">
-        <h2 id="nav-title">Start here</h2>
-        <p class="section-sub muted">Two formats. Same objective: decision-ready clarity.</p>
+        <h2 id="latest-title">Latest</h2>
+        <p class="section-sub muted">Signals — concise dispatches. No filler.</p>
       </div>
 
       <div class="latest-grid">
 
-        <a href="signals.html" class="blog-card" data-lens="futures">
+        <a href="signals/constraint-promotes-innovation.html" class="blog-card" data-lens="innovation">
           <div class="card-top">
-            <span class="badge badge-essay">Signals</span>
-            <span class="card-meta">Short analytical briefs</span>
+            <span class="badge badge-signal">Signal 001</span>
+            <span class="card-meta">Feb 2026 • 3 min</span>
           </div>
-          <h3>Signals</h3>
-          <p>Discrete observations and interpretations — designed to surface constraints, risks, and opportunity windows.</p>
+          <h3>Constraint Promotes Innovation</h3>
+          <p>Constraint is not a speed bump. It is a design spec.</p>
+          <div class="card-tags" aria-label="Tags">
+            <span class="tag">Innovation</span>
+            <span class="tag">Systems</span>
+          </div>
         </a>
 
-        <a href="instruments.html" class="blog-card" data-lens="decision">
+        <a href="signals.html" class="blog-card router-card">
           <div class="card-top">
-            <span class="badge badge-framework">Strategic Instruments</span>
-            <span class="card-meta">Diagnostic layers</span>
+            <span class="badge badge-signal">Signals</span>
+            <span class="card-meta">Browse</span>
           </div>
-          <h3>Strategic Instruments</h3>
-          <p>Structured tools and frameworks — what they measure, how they guide reasoning, and where they fit.</p>
+          <h3>Browse all signals</h3>
+          <p>Short, directional notes: what changed, why it matters, what to watch.</p>
+        </a>
+
+        <a href="instruments.html" class="blog-card router-card">
+          <div class="card-top">
+            <span class="badge badge-framework">Instruments</span>
+            <span class="card-meta">Method notes</span>
+          </div>
+          <h3>Strategic instruments</h3>
+          <p>Decision environments: readiness, constraint exposure, execution risk.</p>
         </a>
 
       </div>
-
-      <!-- Optional: only keep if it links to something real -->
-      <!--
-      <div class="latest-footer latest-footer-left" aria-label="Featured">
-        <span class="muted">Featured:</span>
-        <a class="text-link" href="signals/signal-001.html">Signal 001 →</a>
-      </div>
-      -->
     </section>
 
-    <!-- SMALL POSITIONING STRIP (institutional, not hype) -->
+    <!-- SCOPE (keep, but tighten and remove any "launch/app" energy) -->
     <section class="home-section section-tint section-tint-b" aria-labelledby="scope-title">
       <div class="section-head">
         <h2 id="scope-title">Scope</h2>
         <p class="section-sub muted">
-          Work typically sits at the boundary between technology systems, programme execution, and measurement.
+          Work sits where technology systems meet delivery conditions.
         </p>
       </div>
 
       <div class="tiles tiles-3">
+
         <div class="tile" data-lens="innovation" role="group" aria-label="Innovation systems">
           <span class="tile-kicker">Innovation systems</span>
-          <h3>Adoption + constraint</h3>
-          <p>How ideas move from concept to deployed reality, and why they stall.</p>
+          <h3>Adoption under constraint</h3>
+          <p>Why deployment stalls, and what must hold for uptake to become predictable.</p>
         </div>
 
         <div class="tile" data-lens="valence" role="group" aria-label="Infrastructure and measurement">
           <span class="tile-kicker">Infrastructure</span>
-          <h3>Physical limits</h3>
-          <p>Energy, materials, carbon and verification constraints that shape what is feasible.</p>
+          <h3>Physical and measurement limits</h3>
+          <p>Energy, materials, carbon and verification constraints that shape feasible pathways.</p>
         </div>
 
         <div class="tile" data-lens="decision" role="group" aria-label="Execution architecture">
           <span class="tile-kicker">Execution</span>
-          <h3>Coordination risk</h3>
-          <p>Sequencing, governance, interfaces and second-order effects in transition programmes.</p>
+          <h3>Coordination and sequencing</h3>
+          <p>Governance, interfaces, capacity and second-order effects across transition programmes.</p>
         </div>
+
       </div>
     </section>
 
