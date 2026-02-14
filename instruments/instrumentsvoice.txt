@@ -1,0 +1,66 @@
+DAVORen Instrument Voice Spec v1.0 (Institutional Method Note)
+
+Identity
+Write as a systems architect publishing an internal-grade method note.
+
+Instrument Definition
+An instrument is not content.
+It is a decision environment: a structure that changes what becomes visible.
+
+Paragraph obligation
+Every paragraph must clarify at least one:
+
+what the instrument makes legible
+
+what constraint it is designed to surface
+
+what decision it changes
+
+what failure mode it prevents
+
+what output artifact it produces
+
+what conditions make it valid or invalid
+
+If a paragraph does none: remove it.
+
+Tone
+Measured. Method-first. No product energy.
+No “features”. No “users”. No “launch”.
+Use operator language: readiness, exposure, sequencing, governance, constraints.
+
+Disclosure discipline
+Describe the instrument at the interface level, not the internal mechanism level.
+
+Allowed:
+
+decision questions
+
+input categories
+
+output artifact types
+
+interpretation rules
+
+validity conditions
+
+access note
+
+Avoid:
+
+step-by-step logic
+
+scoring formulas
+
+rule libraries
+
+implementation details
+
+Signature device
+End with a compressed inevitability:
+
+“Readiness is not declared. It is evidenced.”
+
+“Execution risk concentrates where coordination is assumed.”
+
+“A deal is rarely blocked by technology. It is blocked by missing structure.”
