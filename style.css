@@ -1,7 +1,6 @@
 /* ============================================================
-   Davoren Insights — Lean Launch CSS
+   Davoren Insights — Lean Launch CSS (patched)
    Scope: Home + Signals + Signal Articles + Instruments + Engage
-   Intent: institutional / premium, minimal, accessible
 ============================================================ */
 
 /* ============ DESIGN SYSTEM ============ */
@@ -273,10 +272,7 @@ a:focus-visible, button:focus-visible{
 }
 
 /* ============ LAYOUT SECTIONS ============ */
-main{
-  width: min(var(--max), calc(100% - 32px));
-  margin: 0 auto;
-}
+main{ display:block; }
 
 .home-section{
   width: min(var(--max), calc(100% - 32px));
@@ -407,6 +403,7 @@ a.blog-card:hover{
 }
 .badge-signal{ border-color: rgba(0,234,255,0.30); }
 .badge-framework{ border-color: rgba(141,107,255,0.30); }
+.badge-essay{ border-color: rgba(255,75,241,0.30); } /* PATCH: used on Home */
 
 /* Disabled (kept for safety) */
 .blog-card[aria-disabled="true"]{
@@ -421,6 +418,46 @@ a.blog-card:hover{
 .blog-card[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.55); }
 .blog-card[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.55); }
 .blog-card[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.52); }
+
+/* ============ HOME TILES (PATCH: used by index.html Scope) ============ */
+.tiles{
+  display:grid;
+  gap: var(--gutter);
+}
+.tiles-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tile{
+  padding: 16px 16px 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(20,28,48,0.42);
+  border: 1px solid rgba(0,255,255,0.08);
+  box-shadow: var(--shadow-soft);
+}
+.tile-kicker{
+  display:inline-block;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(229,244,255,0.70);
+  margin-bottom: 8px;
+}
+.tile h3{
+  font-size: 16px;
+  font-weight: 780;
+  margin-bottom: 6px;
+}
+.tile p{
+  font-size: 13px;
+  color: rgba(229,244,255,0.78);
+}
+
+/* Optional: lens top-bars on tiles */
+.tile[data-lens="innovation"]{ border-top: 3px solid rgba(0,234,255,0.70); }
+.tile[data-lens="valence"]{ border-top: 3px solid rgba(141,107,255,0.70); }
+.tile[data-lens="futures"]{ border-top: 3px solid rgba(255,75,241,0.70); }
+.tile[data-lens="decision"]{ border-top: 3px solid rgba(75,255,181,0.62); }
 
 /* ============ LATEST FOOTER LINK ============ */
 .latest-footer{
@@ -447,7 +484,7 @@ a.blog-card:hover{
   background: rgba(20,28,48,0.40);
 }
 
-/* ============ FILTER BAR ============ */
+/* ============ FILTER BAR (safe to remove later) ============ */
 .filter-bar{
   display:flex;
   gap: 10px;
@@ -532,6 +569,7 @@ a.blog-card:hover{
 /* ============ RESPONSIVE ============ */
 @media (max-width: 980px){
   .latest-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tiles-3{ grid-template-columns: 1fr; }
   .follow-inner{ flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 620px){
@@ -672,9 +710,7 @@ a.blog-card:hover{
   color: rgba(229,244,255,0.80);
 }
 
-.article-list li{
-  margin: 6px 0;
-}
+.article-list li{ margin: 6px 0; }
 
 .strategic-note{
   margin: 10px 0 0;
@@ -695,7 +731,7 @@ a.blog-card:hover{
   margin-top: 18px;
 }
 
-/* Optional: video wrapper if you embed briefings later */
+/* Optional: video wrapper */
 .video-wrapper{
   position: relative;
   padding-bottom: 56.25%;
@@ -720,7 +756,7 @@ a.blog-card:hover{
 }
 
 /* ============================================================
-   PANEL (used on Instruments page)
+   PANEL (used where needed)
 ============================================================ */
 .academy-panel{
   display:flex;
