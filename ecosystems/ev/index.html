@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EV Ecosystem Map | Davoren Insights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/assets/css/ev-ecosystem.css">
+</head>
+<body>
+  <header>
+    <!-- your normal site nav -->
+  </header>
 
+  <main class="ecosystem-page">
+    <section class="ecosystem-intro">
+      <h1>EV Ecosystem Map</h1>
+      <p>A navigable view of the EV ecosystem, key constraints, and linked strategic analysis.</p>
+    </section>
+
+    <section class="ecosystem-layout">
+      <div id="cy"></div>
+      <aside id="info-panel">
+        <h2>Explore the map</h2>
+        <p>Click a node to view summary, issues, dependencies, and related analysis.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+  <script src="/assets/js/ev-ecosystem.js"></script>
+</body>
+</html>
