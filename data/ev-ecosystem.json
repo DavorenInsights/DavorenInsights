@@ -1,1 +1,54 @@
-
+{
+  "nodes": [
+    {
+      "data": {
+        "id": "policy",
+        "label": "Policy & Regulation",
+        "category": "governance",
+        "summary": "Incentives, standards, regulations, and institutional alignment shaping EV deployment.",
+        "issues": [
+          "Fragmented implementation",
+          "Slow policy translation into bankable activity"
+        ],
+        "dependencies": ["Finance & Incentives", "Standards & Safety"],
+        "status": "mixed",
+        "essay_url": "/signals/policy-implementation-gap.html",
+        "signal_url": "/signals/constraint-promotes-innovation.html"
+      }
+    },
+    {
+      "data": {
+        "id": "grid",
+        "label": "Grid Capacity",
+        "category": "infrastructure",
+        "summary": "Network capacity, reliability, and local distribution readiness.",
+        "issues": [
+          "Local constraints can block charger deployment",
+          "Reliability affects charging economics"
+        ],
+        "dependencies": ["Charging Infrastructure"],
+        "status": "constrained",
+        "essay_url": "",
+        "signal_url": ""
+      }
+    }
+  ],
+  "edges": [
+    {
+      "data": {
+        "id": "e1",
+        "source": "policy",
+        "target": "grid",
+        "label": "enables planning"
+      }
+    },
+    {
+      "data": {
+        "id": "e2",
+        "source": "grid",
+        "target": "charging",
+        "label": "constrains rollout"
+      }
+    }
+  ]
+}
