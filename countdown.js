@@ -31,7 +31,6 @@
 
   function postCard(post, isFeatured) {
     const accent = ["cyan", "violet", "mint", "pink"].includes(post.accent) ? post.accent : "cyan";
-    const postUrl = safeUrl(post.postUrl);
     const sourceUrl = safeUrl(post.sourceUrl);
     const title = escapeHTML(post.title);
     const summary = escapeHTML(post.summary);
@@ -41,10 +40,9 @@
     const day = escapeHTML(post.day);
     const image = imageMarkup(post, "countdown-image", isFeatured);
 
-    const links = [
-      postUrl ? `<a class="countdown-link" href="${postUrl}" target="_blank" rel="noopener noreferrer">LinkedIn post <span aria-hidden="true">↗</span></a>` : "",
-      sourceUrl ? `<a class="countdown-link countdown-link-muted" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Primary source <span aria-hidden="true">↗</span></a>` : ""
-    ].filter(Boolean).join("");
+    const links = sourceUrl
+      ? `<a class="countdown-link countdown-link-muted" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Primary source <span aria-hidden="true">↗</span></a>`
+      : "";
 
     return `
       <article class="countdown-card${isFeatured ? " countdown-card-featured" : ""}" data-accent="${accent}">
@@ -66,7 +64,7 @@
           <h3>${title}</h3>
           <p>${summary}</p>
           <div class="countdown-fact"><span>Why it matters</span>${fact}</div>
-          <div class="countdown-card-links">${links}</div>
+          ${links ? `<div class="countdown-card-links">${links}</div>` : ""}
         </div>
       </article>`;
   }
@@ -117,10 +115,6 @@
     });
     document.querySelectorAll("[data-latest-date]").forEach((node) => {
       node.textContent = latest.date;
-    });
-    document.querySelectorAll("[data-latest-post-link]").forEach((node) => {
-      const url = safeUrl(latest.postUrl);
-      if (url) node.href = url;
     });
     document.querySelectorAll("[data-latest-source-link]").forEach((node) => {
       const url = safeUrl(latest.sourceUrl);

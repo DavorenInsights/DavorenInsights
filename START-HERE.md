@@ -18,6 +18,8 @@ Place images in `images/ev-countdown/` using lowercase names such as:
 - `day-48.png`
 - `day-47.png`
 
-Add each day's content at the top of `countdown-data.js`. Full instructions are in `COUNTDOWN-UPDATE-GUIDE.md`.
+Days 49–45 are already included in the package. Add each new day’s image and content at the top of `countdown-data.js`. Full instructions are in `COUNTDOWN-UPDATE-GUIDE.md`.
+
+Individual countdown cards remain separate from LinkedIn. Only the main profile link is used across the website.
 
 The existing Signals and Strategic Briefs remain live under the Insights Archive.

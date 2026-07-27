@@ -1,10 +1,11 @@
 # EV countdown images
 
-Upload each daily countdown artwork here using this exact naming convention:
+Days 49–45 are already included in this folder:
 
-- `day-49.png`
-- `day-48.png`
-- `day-47.png`
-- continuing down to `day-1.png`
+- `day-49.png` — 22 July 2026
+- `day-48.png` — 23 July 2026
+- `day-47.png` — 24 July 2026
+- `day-46.png` — 25 July 2026
+- `day-45.png` — 26 July 2026
 
-Recommended export size: 1080 × 1350 pixels (4:5). File names are case-sensitive on GitHub Pages.
+Continue with the same lowercase naming convention down to `day-1.png`. GitHub Pages file names are case-sensitive. A 4:5 PNG is recommended for new artwork.

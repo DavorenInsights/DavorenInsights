@@ -51,7 +51,6 @@ Use this structure:
   accent: "cyan",
   image: "images/ev-countdown/day-44.png",
   imageAlt: "World EV Day countdown artwork for Day 44",
-  postUrl: "PASTE_THE_EXACT_LINKEDIN_POST_URL_HERE",
   sourceUrl: "PASTE_THE_PRIMARY_SOURCE_URL_HERE"
 },
 ```
@@ -68,7 +67,7 @@ Use this structure:
 After adding the new object at the top:
 
 - The homepage changes to the new latest day.
-- The featured image, headline, date, category, summary and links update.
+- The featured image, headline, date, category, summary and primary-source link update.
 - The previous latest post and its image move into the carousel.
 - The full Countdown page adds the new card at the top.
 - The card's progress indicator advances automatically.
@@ -77,18 +76,13 @@ You do **not** need to edit `index.html` or `countdown.html` each day.
 
 ---
 
-## Important before publishing
+## LinkedIn setup
 
-The initial cards currently use your LinkedIn profile URL because the exact individual post URLs were not included in the website ZIP. Replace each `postUrl` in `countdown-data.js` with the direct URL of the matching LinkedIn post.
+Countdown entries are intentionally separate from LinkedIn posts. Individual countdown cards do **not** link to LinkedIn. The website links only to your main profile:
 
-To obtain a direct LinkedIn post URL:
+`https://www.linkedin.com/in/brandon-davoren-675b47156/`
 
-1. Open the post on LinkedIn.
-2. Select the three-dot menu.
-3. Choose **Copy link to post**.
-4. Paste it into the relevant `postUrl` field.
-
-Use primary sources where possible for `sourceUrl`: official patent pages, manufacturer releases, standards bodies, research papers or government publications.
+This profile link appears in the homepage follow section and website footers. Keep using `sourceUrl` for the primary technical reference behind each countdown item.
 
 ---
 
@@ -129,7 +123,7 @@ Check the site on both desktop and mobile:
 - Each countdown image appears without stretching or cropping important text.
 - Carousel arrows work on desktop.
 - The carousel can be swiped horizontally on mobile.
-- Every LinkedIn and primary-source link opens correctly.
+- The main LinkedIn profile link and each primary-source link open correctly.
 - The Insights Archive opens both Signals and Strategic Briefs.
 - Existing article links still work.
 
@@ -141,7 +135,6 @@ Also test the public site in a private/incognito window to avoid seeing a cached
 
 Once a week:
 
-- Check all direct LinkedIn URLs.
 - Check primary-source links for redirects or broken pages.
 - Keep summaries to roughly 20–35 words.
 - Keep titles short enough to fit comfortably on cards.

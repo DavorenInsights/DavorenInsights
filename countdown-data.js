@@ -13,7 +13,6 @@
   - accent: cyan | violet | mint | pink
   - image: Local GitHub image path, normally images/ev-countdown/day-XX.png
   - imageAlt: Short accessible description of the image
-  - postUrl: Paste the exact LinkedIn post URL when available
   - sourceUrl: Optional primary source / patent link
 */
 
@@ -28,7 +27,6 @@ window.evCountdownPosts = [
     accent: "pink",
     image: "images/ev-countdown/day-45.png",
     imageAlt: "World EV Day countdown artwork for Day 45",
-    postUrl: "https://www.linkedin.com/in/brandon-davoren",
     sourceUrl: "https://patents.google.com/patent/US11801753B2"
   },
   {
@@ -41,7 +39,6 @@ window.evCountdownPosts = [
     accent: "mint",
     image: "images/ev-countdown/day-46.png",
     imageAlt: "World EV Day countdown artwork for Day 46",
-    postUrl: "https://www.linkedin.com/in/brandon-davoren",
     sourceUrl: ""
   },
   {
@@ -54,7 +51,6 @@ window.evCountdownPosts = [
     accent: "violet",
     image: "images/ev-countdown/day-47.png",
     imageAlt: "World EV Day countdown artwork for Day 47",
-    postUrl: "https://www.linkedin.com/in/brandon-davoren",
     sourceUrl: "https://www.epiroc.com/sv-se/newsroom/2023/epiroc-and-ssab-expands-partnership-with-fossil-carbon-emission-free-recycled-steel-starting-q3-2023"
   },
   {
@@ -67,7 +63,6 @@ window.evCountdownPosts = [
     accent: "cyan",
     image: "images/ev-countdown/day-48.png",
     imageAlt: "World EV Day countdown artwork for Day 48",
-    postUrl: "https://www.linkedin.com/in/brandon-davoren",
     sourceUrl: "https://www.phoenixcontact.com/en-pc/technologies/high-power-charging"
   },
   {
@@ -80,7 +75,6 @@ window.evCountdownPosts = [
     accent: "cyan",
     image: "images/ev-countdown/day-49.png",
     imageAlt: "World EV Day countdown artwork for Day 49",
-    postUrl: "https://www.linkedin.com/in/brandon-davoren",
     sourceUrl: "https://patents.google.com/patent/US8847555B2"
   }
 ];
