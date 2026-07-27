@@ -17,6 +17,19 @@
 */
 
 window.evCountdownPosts = [
+
+ {
+  day: 44,
+  date: "27 July 2026",
+  category: "Charging cybersecurity",
+  title: "Your EV can identify itself to the charger",
+  summary: "With Plug & Charge, digital certificates allow the vehicle to authenticate automatically, authorise the charging session and assign the cost to the correct contract.",
+  fact: "The sequence can happen automatically: cable connected, certificates verified, charging authorised and billing assigned—without tapping a card or opening an app.",
+  accent: "cyan",
+  image: "images/ev-countdown/day-44.png",
+  imageAlt: "World EV Day countdown artwork explaining Plug and Charge authentication for Day 44",
+  sourceUrl: "https://www.charin.global/technology/plug-charge/"
+},
   {
     day: 45,
     date: "26 July 2026",
