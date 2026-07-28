@@ -17,19 +17,30 @@
 */
 
 window.evCountdownPosts = [
-
- {
-  day: 44,
-  date: "27 July 2026",
-  category: "Charging cybersecurity",
-  title: "Your EV can identify itself to the charger",
-  summary: "With Plug & Charge, digital certificates allow the vehicle to authenticate automatically, authorise the charging session and assign the cost to the correct contract.",
-  fact: "The sequence can happen automatically: cable connected, certificates verified, charging authorised and billing assigned—without tapping a card or opening an app.",
-  accent: "cyan",
-  image: "images/ev-countdown/day-44.png",
-  imageAlt: "World EV Day countdown artwork explaining Plug and Charge authentication for Day 44",
-  sourceUrl: "https://www.charin.global/technology/plug-charge/"
-},
+  {
+    day: 43,
+    date: "28 July 2026",
+    category: "Fleet electrification",
+    title: "Stop-start routes can recover energy instead of wasting it",
+    summary: "Electric refuse trucks can turn frequent braking on urban collection routes into an advantage through regenerative braking.",
+    fact: "The same stop-start pattern that wastes energy in diesel trucks can help electric refuse trucks recover energy and extend useful range.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-43.png",
+    imageAlt: "World EV Day countdown artwork for Day 43 about regenerative braking in electric refuse trucks",
+    sourceUrl: ""
+  },
+  {
+    day: 44,
+    date: "27 July 2026",
+    category: "Charging cybersecurity",
+    title: "Your EV can identify itself to the charger",
+    summary: "With Plug & Charge, digital certificates allow the vehicle to authenticate automatically, authorise the charging session and assign the cost to the correct contract.",
+    fact: "The sequence can happen automatically: cable connected, certificates verified, charging authorised and billing assigned—without tapping a card or opening an app.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-44.png",
+    imageAlt: "World EV Day countdown artwork explaining Plug and Charge authentication for Day 44",
+    sourceUrl: "https://www.charin.global/technology/plug-charge/"
+  },
   {
     day: 45,
     date: "26 July 2026",
