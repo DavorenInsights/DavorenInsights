@@ -1,4 +1,3 @@
-LATEST EV COUNTDOWN ENTRY: DAY 43
-Date: 28 July 2026
-Image: images/ev-countdown/day-43.png
-Data: countdown-data.js begins with day: 43
+Latest countdown entry: Day 42
+Date: 29 July 2026
+Required image filename: images/ev-countdown/day-42.png
