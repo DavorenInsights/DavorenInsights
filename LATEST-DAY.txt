@@ -1,3 +1,1 @@
-Latest countdown entry: Day 42
-Date: 29 July 2026
-Required image filename: images/ev-countdown/day-42.png
+42

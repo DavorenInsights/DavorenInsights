@@ -21,12 +21,12 @@ window.evCountdownPosts = [
     day: 42,
     date: "29 July 2026",
     category: "Repairability & insurance",
-    title: "An EV can be repairable—and still be written off",
-    summary: "After a collision, an EV battery should first be isolated, inspected and assessed—but high component values, specialist repairs and parts delays can still make the vehicle uneconomical to repair.",
-    fact: "Technical repairability is not the same as economic repairability. In South Africa, comparable EV insurance premiums may be roughly 10% to 25% higher when other factors are equal.",
-    accent: "violet",
+    title: "An EV can be repairable and still be written off",
+    summary: "The question is not only whether a damaged EV can be fixed, but whether it can be assessed safely, repaired economically and supported by the local repair ecosystem.",
+    fact: "EV affordability depends not only on buying the vehicle, but also on whether it can be repaired economically after a crash.",
+    accent: "cyan",
     image: "images/ev-countdown/day-42.png",
-    imageAlt: "World EV Day countdown artwork for Day 42 about EV repairability and insurance costs",
+    imageAlt: "World EV Day countdown artwork for Day 42 about EV repairability and write-off risk",
     sourceUrl: "https://www.engineeringnews.co.za/article/repairability-sas-next-automotive-affordability-challenge-evs-more-expensive-to-insure-2026-07-28"
   },
   {
