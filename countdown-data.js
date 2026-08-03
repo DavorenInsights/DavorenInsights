@@ -18,6 +18,66 @@
 
 window.evCountdownPosts = [
   {
+    day: 37,
+    date: "3 August 2026",
+    category: "Battery passport",
+    title: "A battery made in China can still need a European passport",
+    summary: "From 18 February 2027, EV batteries placed on the EU market need a battery passport, regardless of where the battery was manufactured.",
+    fact: "The rule follows the market, not the factory: exporters and suppliers selling into Europe may need stronger traceability, carbon and sourcing data.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-37.png",
+    imageAlt: "World EV Day countdown artwork for Day 37 about battery passports and the EU market",
+    sourceUrl: "https://eur-lex.europa.eu/eli/reg/2023/1542/oj"
+  },
+  {
+    day: 38,
+    date: "2 August 2026",
+    category: "Business models",
+    title: "An electric truck can separate the truck from the battery",
+    summary: "Battery swapping can turn one electric truck into three commercial assets: the truck, the battery and the energy service.",
+    fact: "Battery-as-a-Service can lower upfront cost, shift battery risk and increase uptime by separating chassis ownership from battery ownership.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-38.png",
+    imageAlt: "World EV Day countdown artwork for Day 38 about battery swapping and Battery-as-a-Service for trucks",
+    sourceUrl: ""
+  },
+  {
+    day: 39,
+    date: "1 August 2026",
+    category: "Electric buses",
+    title: "Some electric buses charge from above",
+    summary: "Some electric buses use automated pantograph charging at route stops and terminals.",
+    fact: "Opportunity charging lets buses add energy during scheduled stops, sometimes in just a few minutes, instead of relying only on long depot charging windows.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-39.png",
+    imageAlt: "World EV Day countdown artwork for Day 39 about pantograph charging for electric buses",
+    sourceUrl: "https://new.abb.com/ev-charging/high-power-charging-systems/opportunity-charging"
+  },
+  {
+    day: 40,
+    date: "31 July 2026",
+    category: "Battery degradation",
+    title: "Battery degradation is usually quieter than fire",
+    summary: "Most lithium-ion batteries lose performance gradually through chemical and mechanical ageing rather than one dramatic event.",
+    fact: "Hidden ageing mechanisms can reduce capacity, power and charging performance long before any dramatic failure.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-40.png",
+    imageAlt: "World EV Day countdown artwork for Day 40 about quiet battery degradation mechanisms",
+    sourceUrl: ""
+  },
+  {
+    day: 41,
+    date: "30 July 2026",
+    category: "Motors",
+    title: "Some EV motors are wound with copper hairpins",
+    summary: "Some high-performance EV motors use rectangular copper conductors bent into U-shapes, inserted into the stator and then laser-welded together.",
+    fact: "Hairpin windings pack more copper into the same space, helping deliver higher power density with strong, precise low-resistance joints.",
+    accent: "cyan",
+    image: "images/ev-countdown/day-41.png",
+    imageAlt: "World EV Day countdown artwork for Day 41 about copper hairpin winding in EV motors",
+    sourceUrl: ""
+  },
+  {
     day: 42,
     date: "29 July 2026",
     category: "Repairability & insurance",
